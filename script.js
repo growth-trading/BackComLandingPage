@@ -68,7 +68,11 @@ function injectBrokerLinks() {
   // Copy ref code buttons: data-copy-ref="exness"
   document.querySelectorAll('[data-copy-ref]').forEach(btn => {
     const broker = BROKERS[btn.dataset.copyRef];
-    if (broker) btn.onclick = () => copyText(broker.refCode, btn);
+    if (broker) btn.onclick = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      copyText(broker.refCode, btn);
+    };
   });
 }
 
@@ -121,29 +125,24 @@ window.addEventListener('scroll', function() {
   }
 });
 
+// ===== BROKER CARD FILTER =====
+function filterBrokers(cat, btn) {
+  document.querySelectorAll('.blist-tab').forEach(t => t.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  document.querySelectorAll('.broker-card').forEach(card => {
+    const show = cat === 'all' || card.dataset.cat === cat;
+    card.style.display = show ? '' : 'none';
+  });
+}
+
 // ===== BROKER SELECTOR =====
 function goToBroker(broker) {
-  // Find and click the matching selector button
-  const btn = document.querySelector(`.broker-sel-btn[onclick*="'${broker}'"]`);
-  if (btn) switchBroker(broker, btn);
-
-  // Scroll to brokers section
-  const section = document.getElementById('brokers');
-  if (section) {
-    const top = section.getBoundingClientRect().top + window.scrollY - 72;
-    window.scrollTo({ top, behavior: 'smooth' });
-  }
+  // Navigate to broker detail page
+  window.location.href = 'brokers/' + broker + '.html';
 }
 
 function switchBroker(broker, btn) {
-  // Deactivate all selector buttons
-  btn.closest('.broker-selector').querySelectorAll('.broker-sel-btn').forEach(b => {
-    b.classList.remove('active');
-    b.removeAttribute('data-active-broker');
-  });
-  btn.classList.add('active');
-  btn.dataset.activeBroker = broker;
-
+  // Legacy function kept for compatibility
   // Hide all panels, show selected
   document.querySelectorAll('.broker-panel').forEach(p => p.classList.remove('active-broker'));
   const panel = document.getElementById('broker-' + broker);
@@ -312,8 +311,6 @@ function countUp(el) {
 document.addEventListener('DOMContentLoaded', function() {
   injectContactInfo();
   injectBrokerLinks();
-  const firstBtn = document.querySelector('.broker-sel-btn.active');
-  if (firstBtn) firstBtn.dataset.activeBroker = 'exness';
   initScrollAnimations();
 });
 

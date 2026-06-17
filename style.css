@@ -616,6 +616,10 @@ html.light .broker-sel-btn.active { background: var(--bg-card2); box-shadow: 0 2
   align-items: center;
   gap: 10px;
 }
+.broker-logo-img {
+  height: 40px; width: 40px;
+  object-fit: contain; border-radius: 10px;
+}
 .broker-logo-svg {
   width: 34px;
   height: 34px;
@@ -1452,3 +1456,93 @@ html.light .nav-mobile-link:hover { background: rgba(0,0,0,.05); }
   padding-bottom: 18px;
   opacity: 1;
 }
+
+/* ===== BROKER LISTING (card grid) ===== */
+.blist-tabs { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+.blist-tab {
+  padding: 8px 20px; border-radius: 20px; border: 1px solid var(--border);
+  background: transparent; color: var(--text-main); font-size: .875rem;
+  font-weight: 700; cursor: pointer; transition: .2s;
+}
+.blist-tab:hover { border-color: var(--border-hover); color: var(--text-main); }
+.blist-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.broker-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.broker-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(37,99,235,.22);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 12px rgba(37,99,235,.06), 0 1px 3px rgba(0,0,0,.12);
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+.broker-card:hover {
+  border-color: rgba(37,99,235,.65);
+  transform: translateY(-6px);
+  box-shadow: 0 0 0 1px rgba(37,99,235,.35), 0 16px 40px rgba(37,99,235,.18), 0 4px 12px rgba(0,0,0,.15);
+}
+.bcard-logo-wrap {
+  background: var(--bg-alt);
+  display: flex; align-items: center; justify-content: center;
+  padding: 28px;
+  aspect-ratio: 16/9;
+  position: relative; overflow: hidden;
+}
+.bcard-logo-wrap::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at center, var(--logo-glow, rgba(37,99,235,.08)) 0%, transparent 68%);
+  pointer-events: none;
+}
+.bcard-logo-svg { width: 64px; height: 64px; color: var(--accent); position: relative; z-index: 1; }
+.bcard-logo-img {
+  height: 72px; width: 72px;
+  object-fit: contain; border-radius: 14px;
+  position: relative; z-index: 1;
+}
+.bcard-body { padding: 16px; flex: 1; }
+.bcard-name { font-size: 1.1rem; font-weight: 800; margin-bottom: 12px; }
+.bcard-meta { display: flex; flex-direction: column; gap: 6px; }
+.bcard-row { display: flex; align-items: center; gap: 6px; font-size: .8rem; }
+.bcard-lbl { color: var(--text-muted); min-width: 90px; }
+.bcard-val { color: var(--text-sub); font-weight: 500; flex: 1; }
+.bcard-code { font-family: monospace; color: var(--accent); font-weight: 700; }
+.bcard-copy { background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 2px 4px; }
+.bcard-copy:hover { color: var(--accent); }
+.bcard-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(37,99,235,.06);
+  border-top: 1px solid rgba(37,99,235,.12);
+}
+.bcard-footer-label { font-size: .8rem; color: var(--text-sub); }
+.bcard-footer-pct { font-size: 1rem; font-weight: 800; color: var(--accent); }
+.bcard-detail {
+  display: flex; align-items: center; justify-content: center; gap: 2px;
+  padding: 8px 16px;
+  font-size: .78rem; font-weight: 600; color: var(--accent);
+  border-top: 1px solid rgba(37,99,235,.1);
+  transition: gap .2s ease, opacity .2s ease;
+  opacity: .65;
+}
+.broker-card:hover .bcard-detail { gap: 6px; opacity: 1; }
+
+@media (max-width: 900px) { .broker-cards-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .broker-cards-grid { grid-template-columns: 1fr; } }
+
+/* ===== BROKER DETAIL BACK LINK ===== */
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--text-sub); font-size: .875rem; text-decoration: none;
+  margin-bottom: 32px; transition: color .2s;
+}
+.back-link:hover { color: var(--accent); }

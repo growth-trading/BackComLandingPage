@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exness – Hoàn Phí BACKCOM</title>
+  <meta name="description" content="Hoàn phí Exness đến 40% phí spread. Tự động hàng ngày, trọn đời, không điều kiện. Đăng ký qua BACKCOM ngay.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    if (localStorage.getItem('backcom-theme') === 'light') {
+      document.documentElement.classList.add('light');
+    }
+  </script>
+  <style>
+    /* ===== BROKER HERO ===== */
+    .bk-hero {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 0 52px;
+      position: relative; overflow: hidden;
+    }
+    .bk-hero::before {
+      content: ''; position: absolute; top: -80px; left: 40%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(37,99,235,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .bk-hero-inner {
+      display: flex; gap: 48px; align-items: center; position: relative; z-index: 1;
+    }
+    .bk-hero-left { flex: 1; min-width: 0; }
+    .bk-hero-right { flex-shrink: 0; display: flex; align-items: center; justify-content: flex-end; }
+
+    .bk-logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .bk-logo-icon { width: 44px; height: 44px; background: rgba(37,99,235,.12); border: 1px solid rgba(37,99,235,.25); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--accent); }
+    .bk-logo-name { font-size: 1.2rem; font-weight: 800; color: var(--text-main); }
+    .bk-category-pill { font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; padding: 4px 12px; border-radius: 99px; background: var(--bg-card2); color: var(--text-sub); border: 1px solid var(--border); }
+    .bk-hero-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; line-height: 1.2; color: var(--text-main); margin-bottom: 14px; }
+    .bk-hero-desc { font-size: .95rem; color: var(--text-sub); line-height: 1.75; max-width: 500px; margin-bottom: 28px; }
+
+    .bk-code-box {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: rgba(37,99,235,.06); border: 1px dashed rgba(37,99,235,.4);
+      border-radius: 10px; padding: 10px 16px; margin-bottom: 24px;
+    }
+    .bk-code-label { font-size: .75rem; color: var(--text-sub); font-weight: 600; }
+    .bk-code-val { font-family: 'Courier New', monospace; font-size: 1.15rem; font-weight: 900; color: var(--accent); letter-spacing: .08em; }
+    .bk-code-copy { background: none; border: 1px solid transparent; border-radius: 6px; color: var(--text-sub); padding: 4px 8px; cursor: pointer; transition: all .2s; }
+    .bk-code-copy:hover { color: var(--accent); border-color: var(--accent); }
+
+    .bk-hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .bk-btn-register {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff; border: none; border-radius: 10px;
+      padding: 13px 28px; font-size: .95rem; font-weight: 700; text-decoration: none;
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+    .bk-btn-register:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 24px var(--accent-glow); color: #fff; }
+    .bk-trust-badge { display: inline-flex; align-items: center; gap: 6px; font-size: .8rem; color: var(--text-sub); }
+    .bk-trust-badge i { color: var(--green); }
+
+    /* Promo card */
+    .hvc-card {
+      width: 320px;
+      background: linear-gradient(145deg, #0D1117 0%, #0A0F1E 100%);
+      border: 1px solid rgba(37,99,235,.22); border-radius: 20px; padding: 32px 28px 26px;
+      position: relative; overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(37,99,235,.08), 0 20px 60px rgba(0,0,0,.5), 0 0 80px rgba(37,99,235,.1);
+    }
+    .hvc-card::before {
+      content: ''; position: absolute; top: 0; right: 0; width: 180px; height: 180px;
+      background: radial-gradient(circle at top right, rgba(37,99,235,.16) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hvc-brand-row { display: flex; align-items: center; gap: 8px; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 16px; }
+    .hvc-brand-sep { color: rgba(255,255,255,.22); }
+    .hvc-title { font-size: .82rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 8px; }
+    .hvc-pct { font-size: 5rem; font-weight: 900; line-height: 1; background: linear-gradient(135deg, #fff 40%, rgba(37,99,235,.9) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 4px; }
+    .hvc-icon-row { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
+    .hvc-wing { font-size: 2rem; line-height: 1; }
+    .hvc-subline { font-size: .92rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: rgba(255,255,255,.65); line-height: 1.4; }
+
+    html.light .hvc-card { background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%); }
+
+    /* ===== STATS ROW ===== */
+    .bk-stats { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg-card); }
+    .bk-stat { padding: 28px 20px; text-align: center; border-right: 1px solid var(--border); }
+    .bk-stat:last-child { border-right: none; }
+    .bk-stat-icon { font-size: 1.7rem; margin-bottom: 10px; color: var(--accent); }
+    .bk-stat-val { font-size: 2rem; font-weight: 900; color: var(--text-main); line-height: 1; margin-bottom: 5px; }
+    .bk-stat-label { font-size: .8rem; color: var(--text-sub); }
+
+    /* ===== REGISTRATION GUIDE ===== */
+    .bk-guide { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    .bk-guide-title { font-size: 1.7rem; font-weight: 800; text-align: center; margin-bottom: 32px; }
+
+    .reg-tab-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+    .reg-case-btn {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+      padding: 12px 20px; border-radius: 12px; border: 1px solid var(--border);
+      background: var(--bg-card2); cursor: pointer; transition: border-color .2s;
+      text-align: left;
+    }
+    .reg-case-btn:hover { border-color: var(--accent); }
+    .reg-case-btn.active { border-color: var(--accent); }
+    .reg-case-btn.active .reg-case-label { color: var(--accent); }
+    .reg-case-label { display: flex; align-items: center; gap: 8px; font-size: .9rem; font-weight: 700; color: var(--text-main); transition: color .2s; }
+    .reg-rec-tag { font-size: .63rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; background: var(--accent); color: #fff; padding: 2px 8px; border-radius: 4px; }
+    .reg-case-sub { font-size: .75rem; color: var(--text-sub); }
+
+    .reg-case-panels {}
+    .reg-case-panel { display: none; }
+    .reg-case-panel.active { display: block; }
+
+    .reg-pcard {
+      background: var(--bg-card2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 30px 32px;
+    }
+    .reg-pcard.recommended { border-color: rgba(37,99,235,.35); }
+    .reg-pcard-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 24px; }
+    .reg-pcard-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(37,99,235,.12); border: 1px solid rgba(37,99,235,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; color: var(--accent); flex-shrink: 0;
+    }
+    .reg-pcard-name { font-size: 1.1rem; font-weight: 800; color: var(--text-main); }
+    .reg-pcard-sub { font-size: .82rem; color: var(--text-sub); margin-top: 4px; }
+
+    .reg-timeline { display: flex; flex-direction: column; }
+    .reg-tl-step { display: flex; gap: 16px; }
+    .reg-tl-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+    .reg-tl-num {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      font-size: .82rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .reg-tl-line { width: 2px; flex: 1; background: var(--border); min-height: 16px; margin: 5px 0; }
+    .reg-tl-body { padding-bottom: 22px; flex: 1; min-width: 0; }
+    .reg-tl-step.last .reg-tl-body { padding-bottom: 0; }
+    .reg-tl-title { font-size: .92rem; font-weight: 700; color: var(--text-main); margin-bottom: 5px; }
+    .reg-tl-desc { font-size: .85rem; color: var(--text-sub); line-height: 1.7; margin: 0; }
+
+    .reg-inline { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    .reg-code-box {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(37,99,235,.07); border: 1px dashed rgba(37,99,235,.4);
+      border-radius: 8px; padding: 7px 14px;
+    }
+    .reg-code-label { font-size: .72rem; color: var(--text-sub); }
+    .reg-code-val { font-family: 'Courier New', monospace; font-size: 1rem; font-weight: 900; color: var(--accent); letter-spacing: .08em; }
+    .reg-code-copy { background: none; border: none; color: var(--text-sub); padding: 2px 6px; cursor: pointer; border-radius: 4px; transition: color .2s; }
+    .reg-code-copy:hover { color: var(--accent); }
+
+    .btn-case-reg {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--accent); color: #fff; border: none;
+      border-radius: 8px; padding: 10px 18px; font-size: .85rem; font-weight: 700;
+      text-decoration: none; cursor: pointer; transition: background .2s, transform .2s;
+    }
+    .btn-case-reg:hover { background: var(--accent-hover); transform: translateY(-1px); color: #fff; }
+
+    .reg-note {
+      display: flex; align-items: flex-start; gap: 8px; margin-top: 12px;
+      background: rgba(37,99,235,.06); border: 1px solid rgba(37,99,235,.2);
+      border-radius: 8px; padding: 10px 14px; font-size: .83rem; color: var(--text-sub); line-height: 1.6;
+    }
+    .reg-note i { color: var(--accent); margin-top: 2px; flex-shrink: 0; }
+
+    .guide-link-box {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(37,99,235,.06); border: 1px dashed rgba(37,99,235,.4);
+      border-radius: 8px; padding: 8px 14px; margin-top: 10px;
+      font-size: .82rem; color: var(--accent); word-break: break-all;
+      font-family: 'Courier New', monospace; flex-wrap: wrap;
+    }
+    .guide-link-box .btn-copy-link {
+      flex-shrink: 0; font-family: inherit; font-size: .78rem;
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 4px 10px; border-radius: 6px;
+      border: 1px solid var(--accent); color: var(--accent);
+      background: none; cursor: pointer; transition: all .2s;
+    }
+    .guide-link-box .btn-copy-link:hover { background: var(--accent); color: #fff; }
+
+    html.light .reg-pcard { background: #fff; border-color: #e2e8f0; }
+    html.light .reg-pcard.recommended { border-color: rgba(37,99,235,.3); }
+    html.light .reg-case-btn { background: #f8fafc; }
+
+    /* ===== ACCOUNT TYPES SLIDER ===== */
+    .bkex-section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    .bkex-title { font-size: 1.7rem; font-weight: 800; color: var(--text-main); text-align: center; margin-bottom: 12px; }
+    .bkex-subtitle { font-size: .92rem; color: var(--text-sub); text-align: center; max-width: 660px; margin: 0 auto 32px; line-height: 1.75; }
+
+    .bkex-acc-wrap { max-width: 980px; margin: 0 auto; }
+    .bkex-acc-viewport {
+      overflow: hidden; border-radius: 14px;
+      cursor: grab; user-select: none; -webkit-user-select: none;
+    }
+    .bkex-acc-viewport.is-dragging { cursor: grabbing; }
+    .bkex-acc-track { display: flex; gap: 20px; will-change: transform; }
+    .bkex-acc-item { flex-shrink: 0; display: flex; }
+    .bkex-acc-card {
+      background: var(--bg-card2); border: 1px solid var(--border); border-radius: 14px;
+      padding: 22px 20px; display: flex; flex-direction: column; transition: border-color .2s; width: 100%;
+    }
+    .bkex-acc-card:hover { border-color: rgba(37,99,235,.35); }
+    .bkex-acc-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .bkex-acc-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(37,99,235,.1); border: 1px solid rgba(37,99,235,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem; color: var(--accent); flex-shrink: 0;
+    }
+    .bkex-acc-name { font-size: 1rem; font-weight: 800; color: var(--text-main); }
+    .bkex-acc-type { font-size: .72rem; color: var(--text-sub); margin-top: 2px; }
+    .bkex-acc-desc { font-size: .83rem; color: var(--text-sub); line-height: 1.65; margin-bottom: 14px; flex: 1; }
+    .bkex-acc-stats { border-top: 1px solid var(--border); padding-top: 14px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .bkex-acc-stat { display: flex; justify-content: space-between; align-items: center; font-size: .84rem; }
+    .bkex-acc-stat-k { color: var(--text-sub); }
+    .bkex-acc-stat-v { font-weight: 700; color: var(--text-main); }
+    .bkex-acc-stat-v.hl { color: var(--accent); }
+    .bkex-acc-btn {
+      display: block; text-align: center;
+      background: linear-gradient(135deg, var(--accent), #6366F1);
+      color: #fff; font-weight: 700; font-size: .9rem; border: none; border-radius: 8px;
+      padding: 10px 12px; text-decoration: none; cursor: pointer; transition: opacity .2s; margin-top: auto;
+    }
+    .bkex-acc-btn:hover { opacity: .88; color: #fff; }
+    .bkex-acc-nav { display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 20px; }
+    .bkex-acc-nav-btn {
+      background: rgba(37,99,235,.08); border: 1px solid rgba(37,99,235,.25); color: var(--accent);
+      border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center;
+      justify-content: center; cursor: pointer; transition: all .2s; font-size: .9rem;
+    }
+    .bkex-acc-nav-btn:hover { background: rgba(37,99,235,.18); }
+    html.light .bkex-acc-card { background: #fff; border-color: #e2e8f0; }
+
+    /* ===== REBATE TABLE ===== */
+    .bk-table-sec { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    .bk-table-title { font-size: 1.7rem; font-weight: 800; text-align: center; margin-bottom: 28px; }
+    .bk-table-wrap { background: var(--bg-card2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .bk-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .bk-table-wrap table { width: 100%; border-collapse: collapse; min-width: 500px; }
+    .bk-table-wrap thead th { background: rgba(37,99,235,.1); color: var(--accent); font-size: .78rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 12px 16px; text-align: left; }
+    .bk-table-wrap tbody tr { border-bottom: 1px solid var(--border); }
+    .bk-table-wrap tbody tr:last-child { border-bottom: none; }
+    .bk-table-wrap tbody td { padding: 10px 16px; font-size: .88rem; color: var(--text-main); }
+    .bk-table-wrap tbody tr:hover td { background: rgba(37,99,235,.04); }
+    .bk-table-wrap .cat-row td { background: rgba(255,255,255,.02); font-size: .72rem; font-weight: 700; color: var(--text-sub); letter-spacing: .06em; text-transform: uppercase; padding: 7px 16px; }
+    .bk-table-wrap .sym-badge { display: inline-block; background: rgba(37,99,235,.1); color: var(--accent); padding: 2px 8px; border-radius: 5px; font-weight: 700; font-size: .8rem; }
+    .val-std { color: #22c55e; font-weight: 700; }
+    .val-pro { color: #a78bfa; font-weight: 700; }
+    .val-raw { color: var(--accent); font-weight: 700; }
+    html.light .bk-table-wrap { background: #fff; border-color: #e2e8f0; }
+    html.light .bk-table-wrap .cat-row td { background: #f8fafc; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .bk-hero-inner { flex-direction: column; }
+      .bk-hero-right { width: 100%; justify-content: center; }
+      .hvc-card { width: 100%; max-width: 320px; }
+      .bk-stats { grid-template-columns: 1fr 1fr; }
+      .bk-stat { border-bottom: 1px solid var(--border); }
+      .reg-case-btn { flex: 1; min-width: 0; }
+      .reg-pcard { padding: 22px 18px; }
+    }
+    @media (max-width: 600px) {
+      .bk-guide-title, .bk-accs-title, .bk-table-title { font-size: 1.4rem; }
+      .reg-tab-row { flex-direction: column; }
+      .reg-inline { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== SVG BROKER LOGO DEFS ===== -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="logo-exness" viewBox="0 0 24 24">
+      <path d="M20.66 7A10 10 0 1 0 20.66 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="2" y1="12" x2="20.5" y2="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="logo-back">BACK</span><span class="logo-com">COM</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#brokers" class="nav-link vi-text">Sàn Giao Dịch</a>
+      <a href="../index.html#brokers" class="nav-link en-text" style="display:none;">Brokers</a>
+      <a href="../index.html#how-it-works" class="nav-link vi-text">Cách Hoạt Động</a>
+      <a href="../index.html#how-it-works" class="nav-link en-text" style="display:none;">How It Works</a>
+      <a href="../index.html#why-backcom" class="nav-link vi-text">Lợi Ích</a>
+      <a href="../index.html#why-backcom" class="nav-link en-text" style="display:none;">Benefits</a>
+      <a href="../index.html#faq" class="nav-link vi-text">FAQ</a>
+      <a href="../index.html#faq" class="nav-link en-text" style="display:none;">FAQ</a>
+      <a href="../index.html#contact" class="nav-link vi-text">Liên Hệ</a>
+      <a href="../index.html#contact" class="nav-link en-text" style="display:none;">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Chuyển giao diện">
+        <i class="bi bi-sun-fill icon-sun"></i>
+        <i class="bi bi-moon-stars-fill icon-moon"></i>
+      </button>
+      <button class="lang-toggle" id="langToggle" onclick="toggleLang()">
+        <i class="bi bi-translate"></i>
+        <span id="langLabel">EN</span>
+      </button>
+      <a href="#" class="btn-nav-cta vi-text" data-broker="exness" data-action="register">Nhận Hoàn Phí</a>
+      <a href="#" class="btn-nav-cta en-text" style="display:none;" data-broker="exness" data-action="register">Get Rebates</a>
+      <button class="nav-hamburger" id="navHamburger" onclick="toggleMenu()">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="../index.html#brokers" class="nav-mobile-link vi-text" onclick="toggleMenu()">Sàn Giao Dịch</a>
+    <a href="../index.html#brokers" class="nav-mobile-link en-text" style="display:none;" onclick="toggleMenu()">Brokers</a>
+    <a href="../index.html#how-it-works" class="nav-mobile-link vi-text" onclick="toggleMenu()">Cách Hoạt Động</a>
+    <a href="../index.html#how-it-works" class="nav-mobile-link en-text" style="display:none;" onclick="toggleMenu()">How It Works</a>
+    <a href="../index.html#why-backcom" class="nav-mobile-link vi-text" onclick="toggleMenu()">Lợi Ích</a>
+    <a href="../index.html#why-backcom" class="nav-mobile-link en-text" style="display:none;" onclick="toggleMenu()">Benefits</a>
+    <a href="../index.html#faq" class="nav-mobile-link vi-text" onclick="toggleMenu()">FAQ</a>
+    <a href="../index.html#faq" class="nav-mobile-link en-text" style="display:none;" onclick="toggleMenu()">FAQ</a>
+    <a href="../index.html#contact" class="nav-mobile-link vi-text" onclick="toggleMenu()">Liên Hệ</a>
+    <a href="../index.html#contact" class="nav-mobile-link en-text" style="display:none;" onclick="toggleMenu()">Contact</a>
+  </div>
+</nav>
+
+<!-- ===== BROKER DETAIL SECTION ===== -->
+<section class="section" style="padding: 80px 0 40px;">
+  <div class="container">
+
+    <a href="../index.html#brokers" class="back-link">
+      <i class="bi bi-arrow-left"></i>
+      <span class="vi-text">Quay lại danh sách sàn</span>
+      <span class="en-text" style="display:none;">Back to broker list</span>
+    </a>
+
+    <div class="broker-block broker-panel active-broker" id="broker-exness">
+      <div class="broker-block-header exness-header">
+        <div class="broker-block-left">
+          <div class="broker-logo-wrap">
+            <img src="../assets/logos/Exness.png" alt="Exness" class="broker-logo-img">
+            <span class="broker-logo-name">Exness</span>
+          </div>
+          <span class="broker-type-pill vi-text">Forex · CFD</span>
+          <span class="broker-type-pill en-text" style="display:none;">Forex · CFD</span>
+        </div>
+        <div class="broker-block-right">
+          <div class="broker-pct-badge exness-pct">
+            <span class="vi-text">Hoàn tới</span>
+            <span class="en-text" style="display:none;">Up to</span>
+            <span class="pct-num">40%</span>
+          </div>
+          <a href="#" class="btn-broker exness-btn" data-broker="exness" data-action="register">
+            <i class="bi bi-person-plus-fill"></i>
+            <span class="vi-text">Đăng Ký &amp; Nhận Hoàn Phí</span>
+            <span class="en-text" style="display:none;">Register &amp; Get Rebates</span>
+          </a>
+        </div>
+      </div>
+      <div class="broker-block-body">
+        <div class="broker-desc vi-text">
+          Exness là sàn Forex lớn nhất thế giới với spread cực thấp và nạp rút tức thì 24/7. BACKCOM hoàn lại đến 40% phí spread cho tài khoản Standard — hoàn cố định theo lô cho tài khoản Pro, Raw Spread, Zero.
+        </div>
+        <div class="broker-desc en-text" style="display:none;">
+          Exness is the world's largest Forex broker with ultra-low spreads and instant 24/7 deposits. BACKCOM rebates up to 40% of spread fees for Standard accounts — fixed per-lot rebates for Pro, Raw Spread, and Zero accounts.
+        </div>
+        <div class="broker-stats-row">
+          <div class="broker-stat">
+            <div class="bstat-icon exness-icon"><i class="bi bi-percent"></i></div>
+            <div class="bstat-val">40%</div>
+            <div class="bstat-label">Standard</div>
+          </div>
+          <div class="broker-stat">
+            <div class="bstat-icon exness-icon"><i class="bi bi-gem"></i></div>
+            <div class="bstat-val" style="color:#a78bfa;">25%</div>
+            <div class="bstat-label">Pro</div>
+          </div>
+          <div class="broker-stat">
+            <div class="bstat-icon exness-icon"><i class="bi bi-lightning-fill"></i></div>
+            <div class="bstat-val" style="font-size:1.1rem;">Fixed/lot</div>
+            <div class="bstat-label">Raw · Zero</div>
+          </div>
+          <div class="broker-stat">
+            <div class="bstat-icon exness-icon"><i class="bi bi-clock-history"></i></div>
+            <div class="bstat-val" style="font-size:1.1rem;">24/7</div>
+            <div class="bstat-label vi-text">Nạp/Rút</div>
+            <div class="bstat-label en-text" style="display:none;">Deposit/Withdraw</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== REGISTRATION GUIDE ===== -->
+<div class="bk-guide">
+  <div class="container">
+    <h2 class="bk-guide-title vi-text">Hướng Dẫn Đăng Ký Exness</h2>
+    <h2 class="bk-guide-title en-text" style="display:none;">How to Register Exness</h2>
+
+    <div class="reg-tab-row">
+      <button class="reg-case-btn" onclick="switchRegTab(1,this)">
+        <div class="reg-case-label vi-text">Trường Hợp 1</div>
+        <div class="reg-case-label en-text" style="display:none;">Case 1</div>
+        <div class="reg-case-sub vi-text">Chưa có tài khoản</div>
+        <div class="reg-case-sub en-text" style="display:none;">New to Exness</div>
+      </button>
+      <button class="reg-case-btn active" onclick="switchRegTab(2,this)">
+        <div class="reg-case-label vi-text">Trường Hợp 2 <span class="reg-rec-tag">KHUYÊN DÙNG</span></div>
+        <div class="reg-case-label en-text" style="display:none;">Case 2 <span class="reg-rec-tag">RECOMMENDED</span></div>
+        <div class="reg-case-sub vi-text">Đã có tài khoản</div>
+        <div class="reg-case-sub en-text" style="display:none;">Have an account</div>
+      </button>
+      <button class="reg-case-btn" onclick="switchRegTab(3,this)">
+        <div class="reg-case-label vi-text">Trường Hợp 3</div>
+        <div class="reg-case-label en-text" style="display:none;">Case 3</div>
+        <div class="reg-case-sub vi-text">Đổi đối tác IB</div>
+        <div class="reg-case-sub en-text" style="display:none;">Switch IB partner</div>
+      </button>
+    </div>
+
+    <div class="reg-case-panels">
+
+      <!-- Panel 1 — Chưa có tài khoản -->
+      <div class="reg-case-panel" id="exness-rp-1">
+        <div class="reg-pcard">
+          <div class="reg-pcard-header">
+            <div class="reg-pcard-icon"><i class="bi bi-person-plus-fill"></i></div>
+            <div>
+              <div class="reg-pcard-name vi-text">Chưa Có Tài Khoản Exness</div>
+              <div class="reg-pcard-name en-text" style="display:none;">New to Exness</div>
+              <div class="reg-pcard-sub vi-text">Đăng ký mới qua link giới thiệu để nhận hoàn phí ngay</div>
+              <div class="reg-pcard-sub en-text" style="display:none;">Register via referral link to start earning rebates</div>
+            </div>
+          </div>
+          <div class="reg-timeline">
+            <div class="reg-tl-step">
+              <div class="reg-tl-left"><div class="reg-tl-num">1</div><div class="reg-tl-line"></div></div>
+              <div class="reg-tl-body">
+                <div class="reg-tl-title vi-text">Đăng ký qua link giới thiệu BACKCOM</div>
+                <div class="reg-tl-title en-text" style="display:none;">Register via BACKCOM referral link</div>
+                <p class="reg-tl-desc vi-text">Tạo tài khoản Exness mới qua <strong>link giới thiệu</strong> của BACKCOM bên dưới.</p>
+                <p class="reg-tl-desc en-text" style="display:none;">Create a new Exness account through BACKCOM's <strong>referral link</strong> below.</p>
+                <div class="reg-inline">
+                  <div class="reg-code-box">
+                    <span class="reg-code-label vi-text">Mã GT</span>
+                    <span class="reg-code-label en-text" style="display:none;">Code</span>
+                    <span class="reg-code-val" data-ref="exness"></span>
+                    <button class="reg-code-copy" data-copy-ref="exness"><i class="bi bi-copy"></i></button>
+                  </div>
+                  <a href="#" class="btn-case-reg" data-broker="exness" data-action="register">
+                    <i class="bi bi-person-plus-fill"></i>
+                    <span class="vi-text">Đăng Ký Ngay</span>
+                    <span class="en-text" style="display:none;">Register Now</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="reg-tl-step">
+              <div class="reg-tl-left"><div class="reg-tl-num">2</div><div class="reg-tl-line"></div></div>
+              <div class="reg-tl-body">
+                <div class="reg-tl-title vi-text">Xác minh tài khoản (KYC)</div>
+                <div class="reg-tl-title en-text" style="display:none;">Complete KYC</div>
+                <p class="reg-tl-desc vi-text">Xác minh danh tính bằng CCCD, Bằng Lái Xe hoặc Hộ Chiếu.</p>
+                <p class="reg-tl-desc en-text" style="display:none;">Verify your identity with an ID card, driver's license, or passport.</p>
+              </div>
+            </div>
+            <div class="reg-tl-step last">
+              <div class="reg-tl-left"><div class="reg-tl-num">3</div></div>
+              <div class="reg-tl-body">
+                <div class="reg-tl-title vi-text">Nạp tiền & bắt đầu nhận hoàn phí</div>
+                <div class="reg-tl-title en-text" style="display:none;">Deposit & start earning rebates</div>
+                <p class="reg-tl-desc vi-text">Nạp tiền vào tài khoản và bắt đầu giao dịch. Hoàn phí tự động từ lệnh đầu tiên.</p>
+                <p class="reg-tl-desc en-text" style="display:none;">Deposit and start trading. Rebates are calculated automatically from your first order.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 2 — Đã có tài khoản (default active) -->
+      <div class="reg-case-panel active" id="exness-rp-2">
+        <div class="reg-pcard recommended">
+          <div class="reg-pcard-header">
+            <div class="reg-pcard-icon"><i class="bi bi-person-check-fill"></i></div>
+            <div>
+              <div class="reg-pcard-name vi-text">Đã Có Tài Khoản Exness</div>
+              <div class="reg-pcard-name en-text" style="display:none;">Already Have an Exness Account</div>
+              <div class="reg-pcard-sub vi-text">Tạo tài khoản mới bằng email khác để nhận hoàn phí</div>
+              <div class="reg-pcard-sub en-text" style="display:none;">Create a new account with a different email to receive rebates</div>
+            </div>
+          </div>
+          <div class="reg-timeline">
+            <div class="reg-tl-step">
+              <div class="reg-tl-left"><div class="reg-tl-num">1</div><div class="reg-tl-line"></div></div>
+              <div class="reg-tl-body">
+                <div class="reg-tl-title vi-text">Đăng ký tài khoản mới bằng email khác</div>
+                <div class="reg-tl-title en-text" style="display:none;">Register a new account with a different email</div>
+                <p class="reg-tl-desc vi-text">Dùng một <strong>địa chỉ email mới</strong> để tạo tài khoản Exness thứ hai qua link BACKCOM.</p>
+                <p class="reg-tl-desc en-text" style="display:none;">Use a <strong>new email address</strong> to create a second Exness account through BACKCOM's link.</p>
+                <div class="reg-inline">
+                  <div class="reg-code-box">
+                    <span class="reg-code-label vi-text">Mã GT</span>
+                    <span class="reg-code-label en-text" style="display:none;">Code</span>
+                    <span class="reg-code-val" data-ref="exness"></span>
+                    <button class="reg-code-copy" data-copy-ref="exness"><i class="bi bi-copy"></i></button>
+                  </div>
+                  <a href="#" class="btn-case-reg" data-broker="exness" data-action="register">
+                    <i class="bi bi-person-plus-fill"></i>
+                    <span class="vi-text">Đăng Ký Ngay</span>
+                    <span class="en-text" style="display:none;">Register Now</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="reg-tl-step last">
+              <div class="reg-tl-left"><div class="reg-tl-num">2</div></div>
+              <div class="reg-tl-body">
+                <div class="reg-tl-title vi-text">KYC & nạp tiền vào tài khoản mới</div>
+                <div class="reg-tl-title en-text" style="display:none;">KYC & fund the new account</div>
+                <p class="reg-tl-desc vi-text">Xác minh tài khoản và nạp tiền để bắt đầu nhận hoàn phí.</p>
+                <p class="reg-tl-desc en-text" style="display:none;">Verify the new account and deposit to start receiving rebates.</p>
+                <div class="reg-note">
+                  <i class="bi bi-info-circle-fill"></i>
+                  <span class="vi-text">Exness cho phép dùng 1 giấy tờ tùy thân để KYC nhiều tài khoản — chỉ cần dùng email mới.</span>
+                  <span class="en-text" style="display:none;">Exness allows 1 ID document for multiple accounts — just use a new email.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 3 — Đổi IB -->
+      <div class="reg-case-panel" id="exness-rp-3">
+        <div class="reg-pcard">
+          <div class="reg-pcard-header">
+            <div class="reg-pcard-icon"><i class="bi bi-arrow-left-right"></i></div>
+            <div>
+              <div class="reg-pcard-name vi-text">Đã Có Tài Khoản Nhưng Không Muốn Tạo Mới</div>
+              <div class="reg-pcard-name en-text" style="display:none;">Have an Account But Don't Want to Create a New One</div>
+              <div class="reg-pcard-sub vi-text">Chuyển đổi đối tác IB sang BACKCOM để nhận hoàn phí</div>
+              <div class="reg-pcard-sub en-text" style="display:none;">Switch your IB partner to BACKCOM to receive rebates</div>
+            </div>
+          </div>
+          <div class="reg-timeline">
+            <div class="reg-tl-step">
+              <div class="reg-tl-left"><div class="reg-tl-num">1</div><div class="reg-tl-line"></div></div>
+              <div class="reg-tl-body">
+                <div class="reg-tl-title vi-text">Mở Live Chat trên Exness</div>
+                <div class="reg-tl-title en-text" style="display:none;">Open Live Chat on Exness</div>
+                <p class="reg-tl-desc vi-text">Đăng nhập vào tài khoản Exness, vào mục <strong>Hồ sơ</strong> và chọn <strong>Chat trực tuyến</strong>.</p>
+                <p class="reg-tl-desc en-text" style="display:none;">Log in to Exness, go to <strong>Profile</strong> and select <strong>Live Chat</strong>.</p>
+              </div>
+            </div>
+            <div class="reg-tl-step">
+              <div class="reg-tl-left"><div class="reg-tl-num">2</div><div class="reg-tl-line"></div></div>
+              <div class="reg-tl-body">
+                <div class="reg-tl-title vi-text">Yêu cầu đổi đối tác</div>
+                <div class="reg-tl-title en-text" style="display:none;">Request a partner change</div>
+                <p class="reg-tl-desc vi-text">Gửi câu lệnh <strong>"Đổi đối tác"</strong> trong chat để bắt đầu quá trình thay đổi.</p>
+                <p class="reg-tl-desc en-text" style="display:none;">Send the message <strong>"Change partner"</strong> in chat to start the process.</p>
+              </div>
+            </div>
+            <div class="reg-tl-step">
+              <div class="reg-tl-left"><div class="reg-tl-num">3</div><div class="reg-tl-line"></div></div>
+              <div class="reg-tl-body">
+                <div class="reg-tl-title vi-text">Xác nhận qua link BOT gửi</div>
+                <div class="reg-tl-title en-text" style="display:none;">Confirm via BOT link</div>
+                <p class="reg-tl-desc vi-text">Nhấn vào liên kết mà BOT gửi, đăng nhập lại, sau đó nhấn vào liên kết thêm một lần nữa.</p>
+                <p class="reg-tl-desc en-text" style="display:none;">Click the link sent by the BOT, log in again, then click the link one more time.</p>
+              </div>
+            </div>
+            <div class="reg-tl-step">
+              <div class="reg-tl-left"><div class="reg-tl-num">4</div><div class="reg-tl-line"></div></div>
+              <div class="reg-tl-body">
+                <div class="reg-tl-title vi-text">Dán link đối tác BACKCOM</div>
+                <div class="reg-tl-title en-text" style="display:none;">Paste BACKCOM partner link</div>
+                <p class="reg-tl-desc vi-text">Chọn lý do <strong>"Tín hiệu giao dịch"</strong>, sau đó dán link đối tác BACKCOM:</p>
+                <p class="reg-tl-desc en-text" style="display:none;">Select reason <strong>"Trading signals"</strong>, then paste the BACKCOM partner link:</p>
+                <div class="guide-link-box" id="exness-switch-link-box">
+                  <span id="exness-switch-link-val">—</span>
+                  <button class="btn-copy-link" id="exness-switch-link-copy"><i class="bi bi-copy"></i> <span class="vi-text">Sao Chép</span><span class="en-text" style="display:none;">Copy</span></button>
+                </div>
+              </div>
+            </div>
+            <div class="reg-tl-step">
+              <div class="reg-tl-left"><div class="reg-tl-num">5</div><div class="reg-tl-line"></div></div>
+              <div class="reg-tl-body">
+                <div class="reg-tl-title vi-text">Điền nguồn tìm thấy đối tác</div>
+                <div class="reg-tl-title en-text" style="display:none;">Fill in where you found the partner</div>
+                <p class="reg-tl-desc vi-text">Tại mục <em>"Bạn đã tìm thấy đối tác mới ở đâu"</em> — điền link đối tác hoặc <strong>facebook.com</strong>.</p>
+                <p class="reg-tl-desc en-text" style="display:none;">For <em>"Where did you find your new partner?"</em> — enter the partner link or <strong>facebook.com</strong>.</p>
+              </div>
+            </div>
+            <div class="reg-tl-step">
+              <div class="reg-tl-left"><div class="reg-tl-num">6</div><div class="reg-tl-line"></div></div>
+              <div class="reg-tl-body">
+                <div class="reg-tl-title vi-text">Gửi & chờ 24–48h duyệt</div>
+                <div class="reg-tl-title en-text" style="display:none;">Submit & wait 24–48h for approval</div>
+                <p class="reg-tl-desc vi-text">Nhấn <strong>Gửi</strong> và chờ khoảng <strong>24–48 giờ</strong> để nhận email xác nhận thành công.</p>
+                <p class="reg-tl-desc en-text" style="display:none;">Click <strong>Submit</strong> and wait approximately <strong>24–48 hours</strong> for a confirmation email.</p>
+              </div>
+            </div>
+            <div class="reg-tl-step last">
+              <div class="reg-tl-left"><div class="reg-tl-num">7</div></div>
+              <div class="reg-tl-body">
+                <div class="reg-tl-title vi-text">Tạo tài khoản MT4/MT5 mới</div>
+                <div class="reg-tl-title en-text" style="display:none;">Create a new MT4/MT5 account</div>
+                <p class="reg-tl-desc vi-text">Sau khi được duyệt, tạo 1 tài khoản MT4/MT5 mới và giao dịch trên đó để nhận hoàn phí.</p>
+                <p class="reg-tl-desc en-text" style="display:none;">Once approved, create a new MT4/MT5 account and trade on it to receive rebates.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.reg-case-panels -->
+  </div>
+</div>
+
+<!-- ===== ACCOUNT TYPES ===== -->
+<div class="bkex-section">
+  <div class="container">
+    <h2 class="bkex-title vi-text">Các Loại Tài Khoản Giao Dịch Exness</h2>
+    <h2 class="bkex-title en-text" style="display:none;">Exness Account Types</h2>
+    <p class="bkex-subtitle vi-text">Khám phá các loại tài khoản Exness để lựa chọn phù hợp với phong cách trading của bạn. Từ người mới đến trader chuyên nghiệp — tất cả đều nhận hoàn phí qua BACKCOM.</p>
+    <p class="bkex-subtitle en-text" style="display:none;">Explore Exness account types to find the best fit for your trading style — from beginners to professionals, all receive rebates through BACKCOM.</p>
+    <div class="bkex-acc-wrap">
+      <div class="bkex-acc-viewport" id="bkexViewport">
+        <div class="bkex-acc-track" id="bkexAccTrack">
+
+          <div class="bkex-acc-item">
+            <div class="bkex-acc-card">
+              <div class="bkex-acc-head">
+                <div class="bkex-acc-icon"><i class="bi bi-gem"></i></div>
+                <div>
+                  <div class="bkex-acc-name">Pro</div>
+                  <div class="bkex-acc-type vi-text">Tài Khoản Chuyên Nghiệp</div>
+                  <div class="bkex-acc-type en-text" style="display:none;">Professional Account</div>
+                </div>
+              </div>
+              <p class="bkex-acc-desc vi-text">Khớp lệnh tức thời hoặc theo thị trường với spread thấp, dành cho Pro Trader.</p>
+              <p class="bkex-acc-desc en-text" style="display:none;">Instant or market execution with low spreads — built for Pro Traders.</p>
+              <div class="bkex-acc-stats">
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k vi-text">Nạp Tối Thiểu</span><span class="bkex-acc-stat-k en-text" style="display:none;">Min Deposit</span><span class="bkex-acc-stat-v hl">1,000 USD</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k">Spread</span><span class="bkex-acc-stat-v hl">0.1</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k vi-text">Đòn bẩy</span><span class="bkex-acc-stat-k en-text" style="display:none;">Leverage</span><span class="bkex-acc-stat-v hl vi-text">1:Không giới hạn</span><span class="bkex-acc-stat-v hl en-text" style="display:none;">1:Unlimited</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k">Backcom</span><span class="bkex-acc-stat-v hl">25%</span></div>
+              </div>
+              <a href="#" class="bkex-acc-btn" data-broker="exness" data-action="register">
+                <span class="vi-text">Đăng Ký Ngay</span><span class="en-text" style="display:none;">Register Now</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="bkex-acc-item">
+            <div class="bkex-acc-card">
+              <div class="bkex-acc-head">
+                <div class="bkex-acc-icon"><i class="bi bi-credit-card-2-front"></i></div>
+                <div>
+                  <div class="bkex-acc-name">Raw Spread</div>
+                  <div class="bkex-acc-type vi-text">Tài Khoản Chuyên Nghiệp</div>
+                  <div class="bkex-acc-type en-text" style="display:none;">Professional Account</div>
+                </div>
+              </div>
+              <p class="bkex-acc-desc vi-text">Phí cố định theo lô. Thiết kế dành riêng cho nhà giao dịch có kinh nghiệm.</p>
+              <p class="bkex-acc-desc en-text" style="display:none;">Fixed fee per lot — designed exclusively for experienced traders.</p>
+              <div class="bkex-acc-stats">
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k vi-text">Nạp Tối Thiểu</span><span class="bkex-acc-stat-k en-text" style="display:none;">Min Deposit</span><span class="bkex-acc-stat-v hl">1,000 USD</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k">Spread</span><span class="bkex-acc-stat-v hl">0.0</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k vi-text">Đòn bẩy</span><span class="bkex-acc-stat-k en-text" style="display:none;">Leverage</span><span class="bkex-acc-stat-v hl vi-text">1:Không giới hạn</span><span class="bkex-acc-stat-v hl en-text" style="display:none;">1:Unlimited</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k">Backcom</span><span class="bkex-acc-stat-v hl vi-text">Cố định/lot</span><span class="bkex-acc-stat-v hl en-text" style="display:none;">Fixed/lot</span></div>
+              </div>
+              <a href="#" class="bkex-acc-btn" data-broker="exness" data-action="register">
+                <span class="vi-text">Đăng Ký Ngay</span><span class="en-text" style="display:none;">Register Now</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="bkex-acc-item">
+            <div class="bkex-acc-card">
+              <div class="bkex-acc-head">
+                <div class="bkex-acc-icon"><i class="bi bi-circle-half"></i></div>
+                <div>
+                  <div class="bkex-acc-name">Zero</div>
+                  <div class="bkex-acc-type vi-text">Tài Khoản Chuyên Nghiệp</div>
+                  <div class="bkex-acc-type en-text" style="display:none;">Professional Account</div>
+                </div>
+              </div>
+              <p class="bkex-acc-desc vi-text">Chênh lệch từ 0 pip cho các công cụ giao dịch hàng đầu.</p>
+              <p class="bkex-acc-desc en-text" style="display:none;">Spreads from 0 pips on leading trading instruments.</p>
+              <div class="bkex-acc-stats">
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k vi-text">Nạp Tối Thiểu</span><span class="bkex-acc-stat-k en-text" style="display:none;">Min Deposit</span><span class="bkex-acc-stat-v hl">1,000 USD</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k">Spread</span><span class="bkex-acc-stat-v hl">0.0</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k vi-text">Đòn bẩy</span><span class="bkex-acc-stat-k en-text" style="display:none;">Leverage</span><span class="bkex-acc-stat-v hl vi-text">1:Không giới hạn</span><span class="bkex-acc-stat-v hl en-text" style="display:none;">1:Unlimited</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k">Backcom</span><span class="bkex-acc-stat-v hl vi-text">Cố định/lot</span><span class="bkex-acc-stat-v hl en-text" style="display:none;">Fixed/lot</span></div>
+              </div>
+              <a href="#" class="bkex-acc-btn" data-broker="exness" data-action="register">
+                <span class="vi-text">Đăng Ký Ngay</span><span class="en-text" style="display:none;">Register Now</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="bkex-acc-item">
+            <div class="bkex-acc-card">
+              <div class="bkex-acc-head">
+                <div class="bkex-acc-icon"><i class="bi bi-shield-fill"></i></div>
+                <div>
+                  <div class="bkex-acc-name">Standard</div>
+                  <div class="bkex-acc-type vi-text">Tài Khoản Tiêu Chuẩn</div>
+                  <div class="bkex-acc-type en-text" style="display:none;">Standard Account</div>
+                </div>
+              </div>
+              <p class="bkex-acc-desc vi-text">Nạp tối thiểu thấp. Phù hợp với mọi trader từ Scalp đến Swing.</p>
+              <p class="bkex-acc-desc en-text" style="display:none;">Low minimum deposit. Suitable for all traders from scalpers to swing traders.</p>
+              <div class="bkex-acc-stats">
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k vi-text">Nạp Tối Thiểu</span><span class="bkex-acc-stat-k en-text" style="display:none;">Min Deposit</span><span class="bkex-acc-stat-v hl">100 USD</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k">Spread</span><span class="bkex-acc-stat-v hl">0.2</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k vi-text">Đòn bẩy</span><span class="bkex-acc-stat-k en-text" style="display:none;">Leverage</span><span class="bkex-acc-stat-v hl vi-text">1:Không giới hạn</span><span class="bkex-acc-stat-v hl en-text" style="display:none;">1:Unlimited</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k">Backcom</span><span class="bkex-acc-stat-v hl">40%</span></div>
+              </div>
+              <a href="#" class="bkex-acc-btn" data-broker="exness" data-action="register">
+                <span class="vi-text">Đăng Ký Ngay</span><span class="en-text" style="display:none;">Register Now</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="bkex-acc-item">
+            <div class="bkex-acc-card">
+              <div class="bkex-acc-head">
+                <div class="bkex-acc-icon"><i class="bi bi-coin"></i></div>
+                <div>
+                  <div class="bkex-acc-name">Standard Cent</div>
+                  <div class="bkex-acc-type vi-text">Tài Khoản Tiêu Chuẩn</div>
+                  <div class="bkex-acc-type en-text" style="display:none;">Standard Account</div>
+                </div>
+              </div>
+              <p class="bkex-acc-desc vi-text">Khối lượng nhỏ, rủi ro thấp. Phù hợp với người mới tham gia giao dịch và luyện tập.</p>
+              <p class="bkex-acc-desc en-text" style="display:none;">Small volume, low risk — ideal for beginners learning to trade.</p>
+              <div class="bkex-acc-stats">
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k vi-text">Nạp Tối Thiểu</span><span class="bkex-acc-stat-k en-text" style="display:none;">Min Deposit</span><span class="bkex-acc-stat-v hl">100 USD</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k">Spread</span><span class="bkex-acc-stat-v hl">0.3</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k vi-text">Đòn bẩy</span><span class="bkex-acc-stat-k en-text" style="display:none;">Leverage</span><span class="bkex-acc-stat-v hl vi-text">1:Không giới hạn</span><span class="bkex-acc-stat-v hl en-text" style="display:none;">1:Unlimited</span></div>
+                <div class="bkex-acc-stat"><span class="bkex-acc-stat-k">Backcom</span><span class="bkex-acc-stat-v hl">40%</span></div>
+              </div>
+              <a href="#" class="bkex-acc-btn" data-broker="exness" data-action="register">
+                <span class="vi-text">Đăng Ký Ngay</span><span class="en-text" style="display:none;">Register Now</span>
+              </a>
+            </div>
+          </div>
+
+        </div><!-- /.bkex-acc-track -->
+      </div><!-- /.bkex-acc-viewport -->
+      <div class="bkex-acc-nav">
+        <button class="bkex-acc-nav-btn" onclick="bkexAccSlide(-1)"><i class="bi bi-chevron-left"></i></button>
+        <button class="bkex-acc-nav-btn" onclick="bkexAccSlide(1)"><i class="bi bi-chevron-right"></i></button>
+      </div>
+    </div><!-- /.bkex-acc-wrap -->
+  </div>
+</div>
+
+<!-- ===== REBATE TABLE ===== -->
+<div class="bk-table-sec">
+  <div class="container">
+    <h2 class="bk-table-title vi-text">Bảng Hoàn Phí Exness</h2>
+    <h2 class="bk-table-title en-text" style="display:none;">Exness Rebate Table</h2>
+    <div class="bk-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Standard &amp; Cent</th>
+            <th>Pro</th>
+            <th>Raw &amp; Zero</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="cat-row"><td colspan="4"><span class="vi-text">Kim Loại Quý</span><span class="en-text" style="display:none;">Precious Metals</span></td></tr>
+          <tr><td><span class="sym-badge">XAUUSD</span></td><td class="val-std">$11.23 /lot</td><td class="val-pro">$4.95 /lot</td><td class="val-raw">$3.00 /lot</td></tr>
+          <tr><td><span class="sym-badge">XAGUSD</span></td><td class="val-std">$59.99 /lot</td><td class="val-pro">$26.25 /lot</td><td class="val-raw">$18.50 /lot</td></tr>
+          <tr class="cat-row"><td colspan="4"><span class="vi-text">Ngoại Hối</span><span class="en-text" style="display:none;">Forex</span></td></tr>
+          <tr><td><span class="sym-badge">EURUSD</span></td><td class="val-std">$3.20 /lot</td><td class="val-pro">$1.49 /lot</td><td class="val-raw">$0.87 /lot</td></tr>
+          <tr><td><span class="sym-badge">GBPUSD</span></td><td class="val-std">$3.99 /lot</td><td class="val-pro">$1.75 /lot</td><td class="val-raw">$1.12 /lot</td></tr>
+          <tr><td><span class="sym-badge">USDJPY</span></td><td class="val-std">$2.50 /lot</td><td class="val-pro">$1.09 /lot</td><td class="val-raw">$0.75 /lot</td></tr>
+          <tr><td><span class="sym-badge">AUDUSD</span></td><td class="val-std">$3.60 /lot</td><td class="val-pro">$1.49 /lot</td><td>—</td></tr>
+          <tr><td><span class="sym-badge">USDCAD</span></td><td class="val-std">$1.80 /lot</td><td>—</td><td class="val-raw">$1.25 /lot</td></tr>
+          <tr class="cat-row"><td colspan="4"><span class="vi-text">Dầu Thô</span><span class="en-text" style="display:none;">Crude Oil</span></td></tr>
+          <tr><td><span class="sym-badge">USOIL</span></td><td class="val-std">$7.99 /lot</td><td class="val-pro">$3.50 /lot</td><td class="val-raw">$2.37 /lot</td></tr>
+          <tr><td><span class="sym-badge">UKOIL</span></td><td class="val-std">$16.01 /lot</td><td class="val-pro">$7.00 /lot</td><td class="val-raw">$12.51 /lot</td></tr>
+          <tr class="cat-row"><td colspan="4"><span class="vi-text">Tiền Điện Tử</span><span class="en-text" style="display:none;">Crypto</span></td></tr>
+          <tr><td><span class="sym-badge">BTCUSD</span></td><td class="val-std">$5.60 /lot</td><td>—</td><td class="val-raw">$1.75 /lot</td></tr>
+          <tr><td><span class="sym-badge">ETHUSD</span></td><td class="val-std">$0.55 /lot</td><td class="val-pro">$0.24 /lot</td><td class="val-raw">$0.12 /lot</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WHY BACKCOM ===== -->
+<section class="section" id="why-backcom">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge vi-text">LỢI ÍCH</div>
+      <div class="section-badge en-text" style="display:none;">BENEFITS</div>
+      <h2 class="section-title vi-text">Có Nên Tham Gia BACKCOM Không?</h2>
+      <h2 class="section-title en-text" style="display:none;">Should You Join BACKCOM?</h2>
+      <p class="section-subtitle vi-text">Nếu bạn đang giao dịch — thì câu trả lời luôn là <strong>CÓ</strong>. Hoàn phí là khoản tiết kiệm trực tiếp, không ảnh hưởng bất kỳ điều gì đến chiến lược trading của bạn.</p>
+      <p class="section-subtitle en-text" style="display:none;">If you're trading — the answer is always <strong>YES</strong>. Rebates are direct savings with zero impact on your trading strategy.</p>
+    </div>
+    <div class="cmp-grid">
+      <div class="cmp-box cmp-yes">
+        <div class="cmp-icon-wrap yes-icon"><i class="bi bi-check-circle-fill"></i></div>
+        <div class="cmp-title vi-text">Khi Tham Gia BACKCOM</div>
+        <div class="cmp-title en-text" style="display:none;">With BACKCOM</div>
+        <ul class="cmp-list">
+          <li><i class="bi bi-check2"></i><span class="vi-text">Nhận lại <strong>đến 40% phí spread</strong> Exness</span><span class="en-text" style="display:none;">Get back <strong>up to 40% of Exness spreads</strong></span></li>
+          <li><i class="bi bi-check2"></i><span class="vi-text">Hoàn phí <strong>tự động hàng ngày</strong>, trọn đời</span><span class="en-text" style="display:none;"><strong>Daily automatic</strong> rebates — for life</span></li>
+          <li><i class="bi bi-check2"></i><span class="vi-text"><strong>Không ảnh hưởng</strong> spread, chiến lược giao dịch</span><span class="en-text" style="display:none;"><strong>Zero impact</strong> on spreads or your strategy</span></li>
+          <li><i class="bi bi-check2"></i><span class="vi-text"><strong>Không yêu cầu</strong> khối lượng giao dịch tối thiểu</span><span class="en-text" style="display:none;"><strong>No minimum</strong> trading volume required</span></li>
+          <li><i class="bi bi-check2"></i><span class="vi-text">Hỗ trợ tất cả loại tài khoản Exness</span><span class="en-text" style="display:none;">Supports all Exness account types</span></li>
+        </ul>
+        <div class="cmp-footer vi-text">Trade càng nhiều → Hoàn càng nhiều → Lợi nhuận tối ưu hơn</div>
+        <div class="cmp-footer en-text" style="display:none;">Trade more → Earn more rebates → Optimize your profits</div>
+      </div>
+      <div class="cmp-box cmp-no">
+        <div class="cmp-icon-wrap no-icon"><i class="bi bi-x-circle-fill"></i></div>
+        <div class="cmp-title vi-text">Không Tham Gia BACKCOM</div>
+        <div class="cmp-title en-text" style="display:none;">Without BACKCOM</div>
+        <ul class="cmp-list">
+          <li><i class="bi bi-x-lg"></i><span class="vi-text">Không nhận bất kỳ <strong>khoản hoàn phí</strong> nào</span><span class="en-text" style="display:none;">Receive <strong>zero rebates</strong> of any kind</span></li>
+          <li><i class="bi bi-x-lg"></i><span class="vi-text">Mất toàn bộ <strong>phí spread/commission</strong> mỗi lệnh</span><span class="en-text" style="display:none;">Lose all <strong>spread/commission</strong> on every trade</span></li>
+          <li><i class="bi bi-x-lg"></i><span class="vi-text">Chi phí giao dịch <strong>tích lũy âm thầm</strong> theo thời gian</span><span class="en-text" style="display:none;">Trading costs silently <strong>accumulate</strong> over time</span></li>
+          <li><i class="bi bi-x-lg"></i><span class="vi-text">Lợi nhuận bị <strong>bào mòn</strong> mà không nhận ra</span><span class="en-text" style="display:none;">Profits are <strong>silently eroded</strong> without realizing</span></li>
+          <li><i class="bi bi-x-lg"></i><span class="vi-text">Chi phí cao hơn trader <strong>dùng BACKCOM</strong></span><span class="en-text" style="display:none;">Higher costs than traders <strong>using BACKCOM</strong></span></li>
+        </ul>
+        <div class="cmp-footer vi-text">Cùng một cách trade — kết quả hoàn toàn khác nhau</div>
+        <div class="cmp-footer en-text" style="display:none;">Same trading approach — completely different results</div>
+      </div>
+    </div>
+    <div class="example-box">
+      <i class="bi bi-calculator" style="color:var(--accent);font-size:1.3rem;flex-shrink:0;"></i>
+      <div>
+        <p class="vi-text" style="margin:0;"><strong>Ví dụ thực tế:</strong> Với 500 lot XAUUSD/tháng trên tài khoản Standard, bạn nhận lại <strong>~$5,615 tiền hoàn phí</strong>, trong khi trader không dùng BACKCOM không được gì.</p>
+        <p class="en-text" style="display:none;margin:0;"><strong>Real example:</strong> With 500 XAUUSD lots/month on a Standard account, you earn back approximately <strong>$5,615 in rebates</strong> — traders not using BACKCOM earn nothing.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <a href="#" class="btn-primary" style="font-size:1.05rem;padding:15px 36px;" data-broker="exness" data-action="register">
+        <i class="bi bi-lightning-charge-fill"></i>
+        <span class="vi-text">Kích Hoạt BACKCOM Exness Ngay</span>
+        <span class="en-text" style="display:none;">Activate BACKCOM Exness Now</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="section section-alt" id="features">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge vi-text">TẠI SAO BACKCOM</div>
+      <div class="section-badge en-text" style="display:none;">WHY BACKCOM</div>
+      <h2 class="section-title vi-text">Tại Sao Nên Nhận Hoàn Phí Tại BACKCOM?</h2>
+      <h2 class="section-title en-text" style="display:none;">Why Choose BACKCOM For Rebates?</h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-head"><div class="feat-icon"><i class="bi bi-percent"></i></div><div class="feat-title vi-text">Tỉ Lệ Hoàn Phí Tốt Nhất</div><div class="feat-title en-text" style="display:none;">Best Rebate Rate</div></div>
+        <p class="feat-desc vi-text">BACKCOM là <strong>đối tác chính thức</strong> của Exness, nhờ đó người dùng luôn được hưởng mức hoàn phí cao nhất, ổn định và minh bạch nhất.</p>
+        <p class="feat-desc en-text" style="display:none;">BACKCOM is an <strong>official Exness partner</strong>, giving you the highest, most stable and transparent rebate rates available.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-head"><div class="feat-icon"><i class="bi bi-arrow-repeat"></i></div><div class="feat-title vi-text">Hoàn Phí Hàng Ngày</div><div class="feat-title en-text" style="display:none;">Daily Rebates</div></div>
+        <p class="feat-desc vi-text">Exness hoàn phí <strong>tự động mỗi ngày</strong> — không cần chờ tuần hay tháng. Giao dịch hôm nay, nhận hoàn phí ngay hôm sau.</p>
+        <p class="feat-desc en-text" style="display:none;">Exness rebates are processed <strong>automatically every day</strong> — no waiting weeks or months. Trade today, receive rebates tomorrow.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-head"><div class="feat-icon"><i class="bi bi-shield-check"></i></div><div class="feat-title vi-text">Minh Bạch & Trọn Đời</div><div class="feat-title en-text" style="display:none;">Transparent & Lifetime</div></div>
+        <p class="feat-desc vi-text">Mọi khoản hoàn phí đều được ghi nhận <strong>tự động — minh bạch</strong>. Hoàn phí trọn đời, không giới hạn thời gian.</p>
+        <p class="feat-desc en-text" style="display:none;">Every rebate is logged <strong>automatically and transparently</strong>. Lifetime rebates with no time restrictions.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-head"><div class="feat-icon"><i class="bi bi-grid-1x2"></i></div><div class="feat-title vi-text">Tất Cả Loại Tài Khoản</div><div class="feat-title en-text" style="display:none;">All Account Types</div></div>
+        <p class="feat-desc vi-text">BACKCOM hỗ trợ hoàn phí trên <strong>tất cả loại tài khoản Exness</strong>: Standard, Pro, Raw Spread, Zero, Standard Cent.</p>
+        <p class="feat-desc en-text" style="display:none;">BACKCOM supports rebates on <strong>all Exness account types</strong>: Standard, Pro, Raw Spread, Zero, Standard Cent.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-head"><div class="feat-icon"><i class="bi bi-people-fill"></i></div><div class="feat-title vi-text">Nhóm Private – Độc Quyền</div><div class="feat-title en-text" style="display:none;">Exclusive Private Group</div></div>
+        <p class="feat-desc vi-text">Thành viên BACKCOM được tham gia độc quyền <strong>Nhóm Private</strong> — nơi chia sẻ tín hiệu giao dịch, góc nhìn thị trường và kinh nghiệm trade thực chiến.</p>
+        <p class="feat-desc en-text" style="display:none;">BACKCOM members get exclusive access to the <strong>Private Group</strong> — trading signals, market insights, and real trading experience.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-head"><div class="feat-icon"><i class="bi bi-headset"></i></div><div class="feat-title vi-text">Hỗ Trợ 24/7</div><div class="feat-title en-text" style="display:none;">24/7 Support</div></div>
+        <p class="feat-desc vi-text">Đội ngũ BACKCOM luôn sẵn sàng <strong>hỗ trợ 24/7</strong>, phản hồi nhanh và chủ động xử lý vấn đề, giúp bạn nhận <strong>hoàn phí đúng – đủ – kịp thời</strong>.</p>
+        <p class="feat-desc en-text" style="display:none;">BACKCOM's team is available <strong>24/7</strong> — responding fast so you receive rebates <strong>accurately and on time</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:12px;">
+          <span class="logo-back">BACK</span><span class="logo-com">COM</span>
+        </div>
+        <p class="footer-tagline vi-text">Hoàn phí giao dịch — Tự động — Trọn đời</p>
+        <p class="footer-tagline en-text" style="display:none;">Trading rebates — Automatic — Lifetime</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title vi-text">Sàn Giao Dịch</div>
+          <div class="footer-col-title en-text" style="display:none;">Brokers</div>
+          <a href="exness.html" class="footer-link">Exness</a>
+          <a href="binance.html" class="footer-link">Binance</a>
+          <a href="bybit.html" class="footer-link">Bybit</a>
+          <a href="okx.html" class="footer-link">OKX</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title vi-text">Thông Tin</div>
+          <div class="footer-col-title en-text" style="display:none;">Information</div>
+          <a href="../index.html#how-it-works" class="footer-link vi-text">Cách Hoạt Động</a>
+          <a href="../index.html#how-it-works" class="footer-link en-text" style="display:none;">How It Works</a>
+          <a href="../index.html#why-backcom" class="footer-link vi-text">Lợi Ích</a>
+          <a href="../index.html#why-backcom" class="footer-link en-text" style="display:none;">Benefits</a>
+          <a href="../index.html#faq" class="footer-link">FAQ</a>
+          <a href="../index.html#contact" class="footer-link vi-text">Liên Hệ</a>
+          <a href="../index.html#contact" class="footer-link en-text" style="display:none;">Contact</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title vi-text">Kênh Hỗ Trợ</div>
+          <div class="footer-col-title en-text" style="display:none;">Support Channels</div>
+          <a id="footer-telegram" href="#" target="_blank" rel="noopener noreferrer" class="footer-link footer-contact-link">
+            <i class="bi bi-telegram"></i> Telegram
+          </a>
+          <a id="footer-zalo" href="#" target="_blank" rel="noopener noreferrer" class="footer-link footer-contact-link">
+            <i class="bi bi-chat-dots-fill"></i> Zalo
+          </a>
+          <a id="footer-facebook" href="#" target="_blank" rel="noopener noreferrer" class="footer-link footer-contact-link">
+            <i class="bi bi-facebook"></i> Facebook
+          </a>
+          <a id="footer-email" href="#" class="footer-link footer-contact-link">
+            <i class="bi bi-envelope-fill"></i> Email
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="vi-text">© 2025 BACKCOM. Tất cả quyền được bảo lưu. Hoàn phí giao dịch Forex & Crypto.</p>
+      <p class="en-text" style="display:none;">© 2025 BACKCOM. All rights reserved. Forex & Crypto trading rebates.</p>
+      <p class="footer-disclaimer vi-text">Giao dịch Forex và Crypto có rủi ro cao. Chỉ giao dịch với số vốn bạn có thể chấp nhận mất.</p>
+      <p class="footer-disclaimer en-text" style="display:none;">Forex and Crypto trading involves significant risk. Only trade with capital you can afford to lose.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../constants.js"></script>
+<script src="../script.js"></script>
+<script>
+  // Registration tab switcher (scoped to this page)
+  function switchRegTab(n, btn) {
+    document.querySelectorAll('.reg-case-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    document.querySelectorAll('.reg-case-panel').forEach(p => p.classList.remove('active'));
+    const panel = document.getElementById('exness-rp-' + n);
+    if (panel) panel.classList.add('active');
+  }
+
+  // Account types — infinite drag slider (matches original template)
+  (function() {
+    var GAP = 20;
+    var viewport, track, origCount, itemW, stepW, offset, isDragging, startX, startOffset, hasDragged;
+
+    function init() {
+      viewport = document.getElementById('bkexViewport');
+      track    = document.getElementById('bkexAccTrack');
+      if (!viewport || !track) return;
+
+      var origItems = Array.from(track.children);
+      origCount = origItems.length;
+      origItems.forEach(function(el) { track.appendChild(el.cloneNode(true)); });
+      origItems.slice().reverse().forEach(function(el) { track.insertBefore(el.cloneNode(true), track.firstChild); });
+
+      if (window.ResizeObserver) {
+        new ResizeObserver(function() { calcSizes(); }).observe(viewport);
+      }
+      calcSizes();
+
+      viewport.addEventListener('mousedown', onDragStart);
+      viewport.addEventListener('touchstart', onDragStart, { passive: true });
+      window.addEventListener('mousemove', onDragMove);
+      window.addEventListener('touchmove', onDragMove, { passive: false });
+      window.addEventListener('mouseup', onDragEnd);
+      window.addEventListener('touchend', onDragEnd);
+      viewport.addEventListener('click', function(e) { if (hasDragged) { e.preventDefault(); e.stopPropagation(); } }, true);
+      track.addEventListener('transitionend', function() { if (!isDragging) checkBounds(); });
+      window.addEventListener('resize', function() { calcSizes(); });
+    }
+
+    function calcSizes() {
+      var vw = viewport.offsetWidth;
+      if (!vw) return;
+      var vis = vw < 580 ? 1 : vw < 820 ? 2 : 3;
+      itemW = (vw - GAP * (vis - 1)) / vis;
+      stepW = itemW + GAP;
+      Array.from(track.children).forEach(function(el) { el.style.width = itemW + 'px'; });
+      offset = -(origCount * stepW);
+      setPos(false);
+    }
+
+    function setPos(animate) {
+      track.style.transition = animate ? 'transform .45s cubic-bezier(.4,0,.2,1)' : 'none';
+      track.style.transform = 'translateX(' + offset + 'px)';
+    }
+
+    function checkBounds() {
+      var n = origCount, changed = false;
+      while (offset > -(n * stepW))      { offset -= n * stepW; changed = true; }
+      while (offset <= -(2 * n * stepW)) { offset += n * stepW; changed = true; }
+      if (changed) setPos(false);
+    }
+
+    function snapAndCheck() { offset = Math.round(offset / stepW) * stepW; setPos(true); }
+
+    function onDragStart(e) {
+      isDragging = true; hasDragged = false;
+      startX = (e.touches ? e.touches[0] : e).clientX;
+      startOffset = offset;
+      track.style.transition = 'none';
+      viewport.classList.add('is-dragging');
+    }
+
+    function onDragMove(e) {
+      if (!isDragging) return;
+      var x = (e.touches ? e.touches[0] : e).clientX;
+      var delta = x - startX;
+      if (Math.abs(delta) > 5) hasDragged = true;
+      offset = startOffset + delta;
+      var n = origCount;
+      if (offset > -(n * stepW))       { offset -= n * stepW; startOffset -= n * stepW; }
+      else if (offset <= -(2*n*stepW)) { offset += n * stepW; startOffset += n * stepW; }
+      track.style.transform = 'translateX(' + offset + 'px)';
+      if (e.cancelable && hasDragged) e.preventDefault();
+    }
+
+    function onDragEnd() {
+      if (!isDragging) return;
+      isDragging = false;
+      viewport.classList.remove('is-dragging');
+      if (hasDragged) { snapAndCheck(); setTimeout(function() { hasDragged = false; }, 0); }
+    }
+
+    window.bkexAccSlide = function(dir) { offset -= dir * stepW; setPos(true); };
+
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); }
+    else { init(); }
+  })();
+
+  // Inject switch-IB link into the link box
+  document.addEventListener('DOMContentLoaded', function() {
+    const broker = BROKERS && BROKERS.exness;
+    if (broker && broker.switchIbUrl) {
+      const valEl = document.getElementById('exness-switch-link-val');
+      const copyBtn = document.getElementById('exness-switch-link-copy');
+      if (valEl) valEl.textContent = broker.switchIbUrl;
+      if (copyBtn) copyBtn.onclick = function(e) {
+        e.preventDefault();
+        copyText(broker.switchIbUrl, copyBtn);
+      };
+    }
+  });
+</script>
+</body>
+</html>
