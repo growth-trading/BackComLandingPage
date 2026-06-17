@@ -259,3 +259,29 @@ const visObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('.step-card, .broker-block, .cmp-box, .faq-item, .stat-box, .feat-card').forEach(el => {
   visObserver.observe(el);
 });
+
+// ===== ACTIVE NAV HIGHLIGHT ON SCROLL =====
+(function () {
+  const sections = ['brokers', 'how-it-works', 'why-backcom', 'faq', 'contact']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  function setActiveNav(id) {
+    document.querySelectorAll('.nav-link, .nav-mobile-link').forEach(a => {
+      const href = a.getAttribute('href');
+      if (href === '#' + id) {
+        a.classList.add('active');
+      } else {
+        a.classList.remove('active');
+      }
+    });
+  }
+
+  const navObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActiveNav(entry.target.id);
+    });
+  }, { rootMargin: '-50% 0px -45% 0px', threshold: 0 });
+
+  sections.forEach(s => navObserver.observe(s));
+})();
