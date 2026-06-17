@@ -221,43 +221,100 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ===== INTERSECTION OBSERVER — fade-in on scroll =====
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+// ===== SCROLL ANIMATIONS =====
+function initScrollAnimations() {
+  // Assign animation type + stagger delay to each element
+  const groups = [
+    { sel: '.feat-card',    cls: 'anim-up',    stagger: 80  },
+    { sel: '.step-card',    cls: 'anim-up',    stagger: 100 },
+    { sel: '.stat-box',     cls: 'anim-scale', stagger: 70  },
+    { sel: '.faq-item',     cls: 'anim-up',    stagger: 60  },
+    { sel: '.cmp-box.cmp-yes', cls: 'anim-left',  stagger: 0 },
+    { sel: '.cmp-box.cmp-no',  cls: 'anim-right', stagger: 0 },
+    { sel: '.broker-block', cls: 'anim-up',    stagger: 0   },
+    { sel: '.contact-card', cls: 'anim-scale', stagger: 80  },
+    { sel: '.section-header', cls: 'anim-up', stagger: 0   },
+  ];
 
-document.querySelectorAll('.step-card, .broker-block, .cmp-box, .faq-item, .stat-box, .feat-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity .5s ease, transform .5s ease';
-  observer.observe(el);
-});
+  groups.forEach(({ sel, cls, stagger }) => {
+    // Group by parent to reset stagger counter per visible group
+    const els = document.querySelectorAll(sel);
+    const parents = new Map();
+    els.forEach(el => {
+      const parent = el.parentElement;
+      if (!parents.has(parent)) parents.set(parent, []);
+      parents.get(parent).push(el);
+    });
+    parents.forEach(children => {
+      children.forEach((el, i) => {
+        el.classList.add('anim-el', cls);
+        el.style.setProperty('--delay', (i * stagger) + 'ms');
+      });
+    });
+  });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        // Trigger countUp if applicable
+        const numEl = entry.target.querySelector('[data-count]');
+        if (numEl && !numEl.dataset.counted) {
+          numEl.dataset.counted = '1';
+          countUp(numEl);
+        }
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.anim-el').forEach(el => io.observe(el));
+
+  // CountUp — re-triggers every time element enters viewport
+  const numObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        countUp(entry.target);
+      } else {
+        // Cancel running animation when scrolled away so next entry starts fresh
+        if (entry.target._countFrame) {
+          cancelAnimationFrame(entry.target._countFrame);
+          entry.target._countFrame = null;
+        }
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('[data-count]').forEach(el => numObserver.observe(el));
+}
+
+// ===== COUNT UP ANIMATION =====
+function countUp(el) {
+  if (el._countFrame) cancelAnimationFrame(el._countFrame);
+  const target   = parseFloat(el.dataset.count);
+  if (isNaN(target)) return;
+  const prefix   = el.dataset.prefix || '';
+  const suffix   = el.dataset.suffix || '';
+  const duration = 1400;
+  const start    = performance.now();
+  const isInt    = Number.isInteger(target);
+
+  function tick(now) {
+    const p     = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    const val   = eased * target;
+    el.textContent = prefix + (isInt ? Math.floor(val).toLocaleString('vi-VN') : val.toFixed(1)) + suffix;
+    if (p < 1) el._countFrame = requestAnimationFrame(tick);
+    else el.textContent = prefix + (isInt ? target.toLocaleString('vi-VN') : target.toFixed(1)) + suffix;
+  }
+  el._countFrame = requestAnimationFrame(tick);
+}
 
 document.addEventListener('DOMContentLoaded', function() {
   injectContactInfo();
   injectBrokerLinks();
   const firstBtn = document.querySelector('.broker-sel-btn.active');
   if (firstBtn) firstBtn.dataset.activeBroker = 'exness';
-});
-
-// Visible class handler
-const visObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-      visObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-
-document.querySelectorAll('.step-card, .broker-block, .cmp-box, .faq-item, .stat-box, .feat-card').forEach(el => {
-  visObserver.observe(el);
+  initScrollAnimations();
 });
 
 // ===== ACTIVE NAV HIGHLIGHT ON SCROLL =====
