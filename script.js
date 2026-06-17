@@ -1,26 +1,41 @@
 // ===== INJECT CONTACT INFO =====
 function injectContactInfo() {
-  const set = (id, href, text) => {
+  const setHref = (id, href) => {
     const el = document.getElementById(id);
-    if (!el) return;
-    if (href) el.href = href;
-    if (text) el.textContent = text;
+    if (el && href) el.href = href;
+  };
+  const setText = (id, text) => {
+    const el = document.getElementById(id);
+    if (el && text) el.textContent = text;
   };
 
-  set('contact-telegram', CONTACT.telegram.url);
-  set('contact-zalo',     CONTACT.zalo.url);
-  set('contact-facebook', CONTACT.facebook.url);
-  set('contact-email',    CONTACT.email.url);
+  // Card hrefs
+  setHref('contact-telegram', CONTACT.telegram.url);
+  setHref('contact-zalo',     CONTACT.zalo.url);
+  setHref('contact-facebook', CONTACT.facebook.url);
+  setHref('contact-email',    CONTACT.email.url);
 
-  set('ct-telegram-handle', null, CONTACT.telegram.handle);
-  set('ct-zalo-handle',     null, CONTACT.zalo.phone);
-  set('ct-facebook-handle', null, CONTACT.facebook.handle);
-  set('ct-email-handle',    null, CONTACT.email.address);
+  // Handles / display values
+  setText('ct-telegram-handle', CONTACT.telegram.handle);
+  setText('ct-zalo-handle',     CONTACT.zalo.phone);
+  setText('ct-facebook-handle', CONTACT.facebook.handle);
+  setText('ct-email-handle',    CONTACT.email.address);
 
-  set('footer-telegram', CONTACT.telegram.url);
-  set('footer-zalo',     CONTACT.zalo.url);
-  set('footer-facebook', CONTACT.facebook.url);
-  set('footer-email',    CONTACT.email.url);
+  // Descriptions
+  setText('ct-telegram-desc-vi',  CONTACT.telegram.descVi);
+  setText('ct-telegram-desc-en',  CONTACT.telegram.descEn);
+  setText('ct-zalo-desc-vi',      CONTACT.zalo.descVi);
+  setText('ct-zalo-desc-en',      CONTACT.zalo.descEn);
+  setText('ct-facebook-desc-vi',  CONTACT.facebook.descVi);
+  setText('ct-facebook-desc-en',  CONTACT.facebook.descEn);
+  setText('ct-email-desc-vi',     CONTACT.email.descVi);
+  setText('ct-email-desc-en',     CONTACT.email.descEn);
+
+  // Footer links
+  setHref('footer-telegram', CONTACT.telegram.url);
+  setHref('footer-zalo',     CONTACT.zalo.url);
+  setHref('footer-facebook', CONTACT.facebook.url);
+  setHref('footer-email',    CONTACT.email.url);
 }
 
 // ===== INJECT BROKER LINKS & REF CODES =====
@@ -216,7 +231,7 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.step-card, .broker-block, .cmp-box, .faq-item, .stat-box').forEach(el => {
+document.querySelectorAll('.step-card, .broker-block, .cmp-box, .faq-item, .stat-box, .feat-card').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity .5s ease, transform .5s ease';
@@ -241,6 +256,6 @@ const visObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
-document.querySelectorAll('.step-card, .broker-block, .cmp-box, .faq-item, .stat-box').forEach(el => {
+document.querySelectorAll('.step-card, .broker-block, .cmp-box, .faq-item, .stat-box, .feat-card').forEach(el => {
   visObserver.observe(el);
 });

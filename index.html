@@ -18,6 +18,35 @@
 </head>
 <body>
 
+<!-- ===== SVG BROKER LOGO DEFS ===== -->
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <!-- Exness: open-ring "e" with horizontal bar -->
+    <symbol id="logo-exness" viewBox="0 0 24 24">
+      <path d="M20.66 7A10 10 0 1 0 20.66 17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="2" y1="12" x2="20.5" y2="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+    <!-- Binance: 5-diamond star pattern -->
+    <symbol id="logo-binance" viewBox="0 0 50 50">
+      <polygon points="25,17 33,25 25,33 17,25" fill="currentColor"/>
+      <polygon points="25,9 29,13 25,17 21,13" fill="currentColor"/>
+      <polygon points="37,21 41,25 37,29 33,25" fill="currentColor"/>
+      <polygon points="25,33 29,37 25,41 21,37" fill="currentColor"/>
+      <polygon points="13,21 17,25 13,29 9,25" fill="currentColor"/>
+    </symbol>
+    <!-- Bybit: double-B angular mark -->
+    <symbol id="logo-bybit" viewBox="0 0 24 24">
+      <path d="M4 3h8.5a4.5 4.5 0 0 1 0 9H4V3zm0 9h9.5a5.5 5.5 0 0 1 0 11H4V12z" fill="currentColor"/>
+    </symbol>
+    <!-- OKX: 3-block L pattern -->
+    <symbol id="logo-okx" viewBox="0 0 24 24">
+      <rect x="2" y="2" width="9" height="9" rx="1.5" fill="currentColor"/>
+      <rect x="13" y="2" width="9" height="9" rx="1.5" fill="currentColor"/>
+      <rect x="2" y="13" width="9" height="9" rx="1.5" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
@@ -226,27 +255,33 @@
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num">01</div>
-        <div class="step-icon"><i class="bi bi-person-plus-fill"></i></div>
-        <div class="step-title vi-text">Đăng Ký Qua Link BACKCOM</div>
-        <div class="step-title en-text" style="display:none;">Register via BACKCOM Link</div>
+        <div class="step-head">
+          <div class="step-icon"><i class="bi bi-person-plus-fill"></i></div>
+          <div class="step-title vi-text">Đăng Ký Qua Link BACKCOM</div>
+          <div class="step-title en-text" style="display:none;">Register via BACKCOM Link</div>
+        </div>
         <p class="step-desc vi-text">Chọn sàn bạn muốn giao dịch và đăng ký tài khoản mới qua link giới thiệu của BACKCOM. Mất chưa đến 2 phút.</p>
         <p class="step-desc en-text" style="display:none;">Choose your preferred broker and register a new account via BACKCOM's referral link. Takes less than 2 minutes.</p>
       </div>
       <div class="step-arrow"><i class="bi bi-arrow-right"></i></div>
       <div class="step-card">
         <div class="step-num">02</div>
-        <div class="step-icon"><i class="bi bi-lightning-charge-fill"></i></div>
-        <div class="step-title vi-text">Giao Dịch Như Bình Thường</div>
-        <div class="step-title en-text" style="display:none;">Trade as Usual</div>
+        <div class="step-head">
+          <div class="step-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+          <div class="step-title vi-text">Giao Dịch Như Bình Thường</div>
+          <div class="step-title en-text" style="display:none;">Trade as Usual</div>
+        </div>
         <p class="step-desc vi-text">Không cần thay đổi bất cứ điều gì. Chiến lược, spread, điều kiện giao dịch hoàn toàn giữ nguyên.</p>
         <p class="step-desc en-text" style="display:none;">No need to change anything. Your strategy, spreads, and trading conditions remain exactly the same.</p>
       </div>
       <div class="step-arrow"><i class="bi bi-arrow-right"></i></div>
       <div class="step-card">
         <div class="step-num">03</div>
-        <div class="step-icon"><i class="bi bi-cash-coin"></i></div>
-        <div class="step-title vi-text">Nhận Hoàn Phí Tự Động</div>
-        <div class="step-title en-text" style="display:none;">Receive Automatic Rebates</div>
+        <div class="step-head">
+          <div class="step-icon"><i class="bi bi-cash-coin"></i></div>
+          <div class="step-title vi-text">Nhận Hoàn Phí Tự Động</div>
+          <div class="step-title en-text" style="display:none;">Receive Automatic Rebates</div>
+        </div>
         <p class="step-desc vi-text">Phí giao dịch được hoàn tự động vào tài khoản của bạn hàng ngày/hàng tuần. Giao dịch càng nhiều — hoàn càng lớn.</p>
         <p class="step-desc en-text" style="display:none;">Trading fees are automatically rebated to your account daily/weekly. The more you trade — the more you earn back.</p>
       </div>
@@ -269,24 +304,28 @@
     <!-- BROKER SELECTOR TABS -->
     <div class="broker-selector">
       <button class="broker-sel-btn active" onclick="switchBroker('exness', this)">
-        <span class="bsel-logo exness-logo">Exness</span>
+        <svg class="bsel-icon" aria-hidden="true"><use href="#logo-exness"/></svg>
+        <span class="bsel-logo">Exness</span>
         <span class="bsel-type">Forex · CFD</span>
-        <span class="bsel-pct exness-pct-color">40%</span>
+        <span class="bsel-pct">40%</span>
       </button>
       <button class="broker-sel-btn" onclick="switchBroker('binance', this)">
-        <span class="bsel-logo binance-logo">Binance</span>
+        <svg class="bsel-icon" aria-hidden="true"><use href="#logo-binance"/></svg>
+        <span class="bsel-logo">Binance</span>
         <span class="bsel-type">Spot · Futures</span>
-        <span class="bsel-pct binance-pct-color">40%</span>
+        <span class="bsel-pct">40%</span>
       </button>
       <button class="broker-sel-btn" onclick="switchBroker('bybit', this)">
-        <span class="bsel-logo bybit-logo">Bybit</span>
+        <svg class="bsel-icon" aria-hidden="true"><use href="#logo-bybit"/></svg>
+        <span class="bsel-logo">Bybit</span>
         <span class="bsel-type">Spot · Derivatives</span>
-        <span class="bsel-pct bybit-pct-color">50%</span>
+        <span class="bsel-pct">50%</span>
       </button>
       <button class="broker-sel-btn" onclick="switchBroker('okx', this)">
-        <span class="bsel-logo okx-logo">OKX</span>
+        <svg class="bsel-icon" aria-hidden="true"><use href="#logo-okx"/></svg>
+        <span class="bsel-logo">OKX</span>
         <span class="bsel-type">Spot · Futures</span>
-        <span class="bsel-pct okx-pct-color">50%</span>
+        <span class="bsel-pct">50%</span>
       </button>
     </div>
 
@@ -294,7 +333,10 @@
     <div class="broker-block broker-panel active-broker" id="broker-exness">
       <div class="broker-block-header exness-header">
         <div class="broker-block-left">
-          <div class="broker-logo-text exness-logo">Exness</div>
+          <div class="broker-logo-wrap">
+            <svg class="broker-logo-svg" aria-hidden="true"><use href="#logo-exness"/></svg>
+            <span class="broker-logo-name">Exness</span>
+          </div>
           <span class="broker-type-pill vi-text">Forex · CFD</span>
           <span class="broker-type-pill en-text" style="display:none;">Forex · CFD</span>
         </div>
@@ -339,6 +381,23 @@
             <div class="bstat-val" style="font-size:1.1rem;">24/7</div>
             <div class="bstat-label vi-text">Nạp/Rút</div>
             <div class="bstat-label en-text" style="display:none;">Deposit/Withdraw</div>
+          </div>
+        </div>
+        <div class="ref-bar">
+          <div class="ref-bar-left">
+            <div class="ref-bar-icon exness-icon"><i class="bi bi-key-fill"></i></div>
+            <div>
+              <div class="ref-bar-title vi-text">Mã giới thiệu BACKCOM</div>
+              <div class="ref-bar-title en-text" style="display:none;">BACKCOM Referral Code</div>
+              <div class="ref-bar-hint vi-text">Nhập mã này khi đăng ký để kích hoạt hoàn phí</div>
+              <div class="ref-bar-hint en-text" style="display:none;">Enter this code when registering to activate rebates</div>
+            </div>
+          </div>
+          <div class="ref-bar-right">
+            <button class="ref-chip" data-copy-ref="exness" title="Sao chép mã">
+              <span data-ref="exness"></span>
+              <i class="bi bi-copy ref-chip-icon"></i>
+            </button>
           </div>
         </div>
         <!-- Registration tabs -->
@@ -440,35 +499,67 @@
                   <div class="t-body">
                     <div class="t-title vi-text">Mở Live Chat trên Exness</div>
                     <div class="t-title en-text" style="display:none;">Open Live Chat on Exness</div>
-                    <p class="t-desc vi-text">Đăng nhập Exness → <strong>Hồ sơ</strong> → <strong>Chat trực tuyến</strong>.</p>
-                    <p class="t-desc en-text" style="display:none;">Log in to Exness → <strong>Profile</strong> → <strong>Live Chat</strong>.</p>
+                    <p class="t-desc vi-text">Đăng nhập vào tài khoản Exness, vào mục <strong>Hồ sơ</strong> và chọn <strong>Chat trực tuyến</strong>.</p>
+                    <p class="t-desc en-text" style="display:none;">Log in to Exness, go to <strong>Profile</strong> and select <strong>Live Chat</strong>.</p>
                   </div>
                 </div>
                 <div class="t-step">
                   <div class="t-num exness-num">2</div>
                   <div class="t-body">
-                    <div class="t-title vi-text">Yêu cầu "Đổi đối tác"</div>
-                    <div class="t-title en-text" style="display:none;">Request "Change partner"</div>
-                    <p class="t-desc vi-text">Gửi câu lệnh <strong>"Đổi đối tác"</strong> trong chat.</p>
-                    <p class="t-desc en-text" style="display:none;">Send the message <strong>"Change partner"</strong> in chat.</p>
+                    <div class="t-title vi-text">Yêu cầu đổi đối tác</div>
+                    <div class="t-title en-text" style="display:none;">Request partner change</div>
+                    <p class="t-desc vi-text">Gửi câu lệnh <strong>"Đổi đối tác"</strong> trong chat để bắt đầu quá trình thay đổi.</p>
+                    <p class="t-desc en-text" style="display:none;">Send the message <strong>"Change partner"</strong> in chat to start the process.</p>
                   </div>
                 </div>
                 <div class="t-step">
                   <div class="t-num exness-num">3</div>
                   <div class="t-body">
-                    <div class="t-title vi-text">Xác nhận qua BOT & dán link BACKCOM</div>
-                    <div class="t-title en-text" style="display:none;">Confirm via BOT & paste BACKCOM link</div>
-                    <p class="t-desc vi-text">Click link BOT gửi, đăng nhập lại, chọn lý do <strong>"Tín hiệu giao dịch"</strong>, dán link BACKCOM.</p>
-                    <p class="t-desc en-text" style="display:none;">Click BOT link, log in again, select reason <strong>"Trading signals"</strong>, paste the BACKCOM link.</p>
+                    <div class="t-title vi-text">Xác nhận qua link BOT gửi</div>
+                    <div class="t-title en-text" style="display:none;">Confirm via BOT link</div>
+                    <p class="t-desc vi-text">Nhấn vào liên kết mà BOT gửi, đăng nhập lại, sau đó nhấn vào liên kết thêm một lần nữa.</p>
+                    <p class="t-desc en-text" style="display:none;">Click the link the BOT sends, log in again, then click the link one more time.</p>
                   </div>
                 </div>
-                <div class="t-step last">
+                <div class="t-step">
                   <div class="t-num exness-num">4</div>
+                  <div class="t-body">
+                    <div class="t-title vi-text">Dán link đối tác BACKCOM</div>
+                    <div class="t-title en-text" style="display:none;">Paste BACKCOM partner link</div>
+                    <p class="t-desc vi-text">Chọn lý do <strong>"Tín hiệu giao dịch"</strong>, sau đó dán link đối tác BACKCOM vào ô yêu cầu.</p>
+                    <p class="t-desc en-text" style="display:none;">Select reason <strong>"Trading signals"</strong>, then paste the BACKCOM partner link into the field.</p>
+                    <a href="#" class="btn-step exness-btn-step" data-broker="exness" data-action="switch-ib">
+                      <i class="bi bi-copy"></i>
+                      <span class="vi-text">Sao Chép Link BACKCOM</span>
+                      <span class="en-text" style="display:none;">Copy BACKCOM Link</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="t-step">
+                  <div class="t-num exness-num">5</div>
+                  <div class="t-body">
+                    <div class="t-title vi-text">Điền nguồn tìm thấy đối tác</div>
+                    <div class="t-title en-text" style="display:none;">Fill in where you found the partner</div>
+                    <p class="t-desc vi-text">Tại mục <em>"Bạn đã tìm thấy đối tác mới ở đâu"</em> — điền link đối tác hoặc điền <strong>facebook.com</strong>.</p>
+                    <p class="t-desc en-text" style="display:none;">In the <em>"Where did you find the new partner"</em> field — enter the partner link or type <strong>facebook.com</strong>.</p>
+                  </div>
+                </div>
+                <div class="t-step">
+                  <div class="t-num exness-num">6</div>
                   <div class="t-body">
                     <div class="t-title vi-text">Gửi & chờ 24–48h duyệt</div>
                     <div class="t-title en-text" style="display:none;">Submit & wait 24–48h for approval</div>
-                    <p class="t-desc vi-text">Sau khi được duyệt, tạo tài khoản MT4/MT5 mới và giao dịch trên đó.</p>
-                    <p class="t-desc en-text" style="display:none;">Once approved, create a new MT4/MT5 account and trade on it.</p>
+                    <p class="t-desc vi-text">Nhấn <strong>Gửi</strong> và chờ khoảng <strong>24–48 giờ</strong> để nhận email xác nhận thành công.</p>
+                    <p class="t-desc en-text" style="display:none;">Click <strong>Submit</strong> and wait approximately <strong>24–48 hours</strong> for a confirmation email.</p>
+                  </div>
+                </div>
+                <div class="t-step last">
+                  <div class="t-num exness-num">7</div>
+                  <div class="t-body">
+                    <div class="t-title vi-text">Tạo tài khoản MT4/MT5 mới</div>
+                    <div class="t-title en-text" style="display:none;">Create a new MT4/MT5 account</div>
+                    <p class="t-desc vi-text">Sau khi được duyệt, tạo 1 tài khoản MT4/MT5 mới và giao dịch trên đó để nhận hoàn phí.</p>
+                    <p class="t-desc en-text" style="display:none;">Once approved, create a new MT4/MT5 account and trade on it to receive rebates.</p>
                   </div>
                 </div>
               </div>
@@ -482,7 +573,10 @@
     <div class="broker-block broker-panel" id="broker-binance">
       <div class="broker-block-header binance-header">
         <div class="broker-block-left">
-          <div class="broker-logo-text binance-logo">Binance</div>
+          <div class="broker-logo-wrap">
+            <svg class="broker-logo-svg" aria-hidden="true"><use href="#logo-binance"/></svg>
+            <span class="broker-logo-name">Binance</span>
+          </div>
           <span class="broker-type-pill">Spot · Futures</span>
         </div>
         <div class="broker-block-right">
@@ -547,6 +641,23 @@
             <div class="mech-total-num">40%</div>
             <div class="mech-total-sub vi-text">Tổng hoàn phí</div>
             <div class="mech-total-sub en-text" style="display:none;">Total rebate</div>
+          </div>
+        </div>
+        <div class="ref-bar">
+          <div class="ref-bar-left">
+            <div class="ref-bar-icon binance-icon"><i class="bi bi-key-fill"></i></div>
+            <div>
+              <div class="ref-bar-title vi-text">Mã giới thiệu BACKCOM</div>
+              <div class="ref-bar-title en-text" style="display:none;">BACKCOM Referral Code</div>
+              <div class="ref-bar-hint vi-text">Nhập mã này khi đăng ký để kích hoạt hoàn phí</div>
+              <div class="ref-bar-hint en-text" style="display:none;">Enter this code when registering to activate rebates</div>
+            </div>
+          </div>
+          <div class="ref-bar-right">
+            <button class="ref-chip" data-copy-ref="binance" title="Sao chép mã">
+              <span data-ref="binance"></span>
+              <i class="bi bi-copy ref-chip-icon"></i>
+            </button>
           </div>
         </div>
         <div class="reg-guide">
@@ -647,7 +758,10 @@
     <div class="broker-block broker-panel" id="broker-bybit">
       <div class="broker-block-header bybit-header">
         <div class="broker-block-left">
-          <div class="broker-logo-text bybit-logo">Bybit</div>
+          <div class="broker-logo-wrap">
+            <svg class="broker-logo-svg" aria-hidden="true"><use href="#logo-bybit"/></svg>
+            <span class="broker-logo-name">Bybit</span>
+          </div>
           <span class="broker-type-pill">Spot · Derivatives</span>
         </div>
         <div class="broker-block-right">
@@ -693,6 +807,23 @@
             <div class="bstat-val" style="color:#f97316;">∞</div>
             <div class="bstat-label vi-text">Trọn đời</div>
             <div class="bstat-label en-text" style="display:none;">Lifetime</div>
+          </div>
+        </div>
+        <div class="ref-bar">
+          <div class="ref-bar-left">
+            <div class="ref-bar-icon bybit-icon"><i class="bi bi-key-fill"></i></div>
+            <div>
+              <div class="ref-bar-title vi-text">Mã giới thiệu BACKCOM</div>
+              <div class="ref-bar-title en-text" style="display:none;">BACKCOM Referral Code</div>
+              <div class="ref-bar-hint vi-text">Nhập mã này khi đăng ký để kích hoạt hoàn phí</div>
+              <div class="ref-bar-hint en-text" style="display:none;">Enter this code when registering to activate rebates</div>
+            </div>
+          </div>
+          <div class="ref-bar-right">
+            <button class="ref-chip" data-copy-ref="bybit" title="Sao chép mã">
+              <span data-ref="bybit"></span>
+              <i class="bi bi-copy ref-chip-icon"></i>
+            </button>
           </div>
         </div>
         <div class="reg-guide">
@@ -793,7 +924,10 @@
     <div class="broker-block broker-panel" id="broker-okx">
       <div class="broker-block-header okx-header">
         <div class="broker-block-left">
-          <div class="broker-logo-text okx-logo">OKX</div>
+          <div class="broker-logo-wrap">
+            <svg class="broker-logo-svg" aria-hidden="true"><use href="#logo-okx"/></svg>
+            <span class="broker-logo-name">OKX</span>
+          </div>
           <span class="broker-type-pill">Spot · Futures</span>
         </div>
         <div class="broker-block-right">
@@ -841,6 +975,23 @@
             <div class="bstat-label en-text" style="display:none;">Lifetime</div>
           </div>
         </div>
+        <div class="ref-bar">
+          <div class="ref-bar-left">
+            <div class="ref-bar-icon okx-icon"><i class="bi bi-key-fill"></i></div>
+            <div>
+              <div class="ref-bar-title vi-text">Mã giới thiệu BACKCOM</div>
+              <div class="ref-bar-title en-text" style="display:none;">BACKCOM Referral Code</div>
+              <div class="ref-bar-hint vi-text">Nhập mã này khi đăng ký để kích hoạt hoàn phí</div>
+              <div class="ref-bar-hint en-text" style="display:none;">Enter this code when registering to activate rebates</div>
+            </div>
+          </div>
+          <div class="ref-bar-right">
+            <button class="ref-chip" data-copy-ref="okx" title="Sao chép mã">
+              <span data-ref="okx"></span>
+              <i class="bi bi-copy ref-chip-icon"></i>
+            </button>
+          </div>
+        </div>
         <div class="reg-guide">
           <h3 class="reg-guide-title vi-text">Hướng Dẫn Đăng Ký OKX</h3>
           <h3 class="reg-guide-title en-text" style="display:none;">OKX Registration Guide</h3>
@@ -852,6 +1003,10 @@
             <button class="reg-tab" onclick="switchTab('okx',2,this)">
               <span class="vi-text">Đã có tài khoản</span>
               <span class="en-text" style="display:none;">Existing account</span>
+            </button>
+            <button class="reg-tab" onclick="switchTab('okx',3,this)">
+              <span class="vi-text">Không thể nhập mã</span>
+              <span class="en-text" style="display:none;">Cannot apply code</span>
             </button>
           </div>
           <div class="reg-panels">
@@ -894,29 +1049,98 @@
             <div class="reg-panel" id="okx-panel-2">
               <div class="reg-note-box">
                 <i class="bi bi-info-circle-fill"></i>
-                <span class="vi-text">Liên hệ BACKCOM support để được hỗ trợ chuyển đổi tài khoản OKX hiện tại.</span>
-                <span class="en-text" style="display:none;">Contact BACKCOM support for assistance migrating your existing OKX account.</span>
+                <span class="vi-text">Áp dụng khi tài khoản <strong>chưa đăng ký dưới bất kỳ mã giới thiệu nào</strong> trước đó. Nếu không thành công, thực hiện <strong>Tab 3</strong>.</span>
+                <span class="en-text" style="display:none;">Applies when the account is <strong>not registered under any referral code</strong> previously. If unsuccessful, proceed to <strong>Tab 3</strong>.</span>
               </div>
               <div class="timeline">
                 <div class="t-step">
                   <div class="t-num okx-num">1</div>
                   <div class="t-body">
-                    <div class="t-title vi-text">Tạo tài khoản OKX mới qua link BACKCOM</div>
-                    <div class="t-title en-text" style="display:none;">Create new OKX account via BACKCOM link</div>
+                    <div class="t-title vi-text">Truy cập link nhập mã OKX</div>
+                    <div class="t-title en-text" style="display:none;">Access OKX code application link</div>
+                    <p class="t-desc vi-text">Đăng nhập vào tài khoản OKX hiện tại rồi truy cập link bên dưới để mở trang đăng ký broker mới.</p>
+                    <p class="t-desc en-text" style="display:none;">Log into your existing OKX account, then access the link below to open the broker registration page.</p>
                     <a href="#" class="btn-step okx-btn-step" data-broker="okx" data-action="register">
-                      <i class="bi bi-person-plus-fill"></i>
-                      <span class="vi-text">Đăng Ký Tài Khoản Mới</span>
-                      <span class="en-text" style="display:none;">Register New Account</span>
+                      <i class="bi bi-box-arrow-up-right"></i>
+                      <span class="vi-text">Truy Cập Link Nhập Mã</span>
+                      <span class="en-text" style="display:none;">Access Code Link</span>
                     </a>
                   </div>
                 </div>
-                <div class="t-step last">
+                <div class="t-step">
                   <div class="t-num okx-num">2</div>
                   <div class="t-body">
-                    <div class="t-title vi-text">Liên kết UID & chuyển tài sản</div>
-                    <div class="t-title en-text" style="display:none;">Link UID & transfer assets</div>
-                    <p class="t-desc vi-text">Liên kết UID tài khoản mới với BACKCOM, sau đó chuyển tài sản và bắt đầu giao dịch.</p>
-                    <p class="t-desc en-text" style="display:none;">Link the new account UID with BACKCOM, then transfer assets and start trading.</p>
+                    <div class="t-title vi-text">Nhập mã mới và lý do tham gia</div>
+                    <div class="t-title en-text" style="display:none;">Enter new code and reason</div>
+                    <p class="t-desc vi-text">Điền thông tin theo hướng dẫn:</p>
+                    <p class="t-desc en-text" style="display:none;">Fill in the required information:</p>
+                    <div class="t-code-row">
+                      <span class="t-code-label vi-text">Mã Mới:</span>
+                      <span class="t-code-label en-text" style="display:none;">New Code:</span>
+                      <span class="t-code-val" data-ref="okx"></span>
+                      <button class="t-code-copy" data-copy-ref="okx" title="Sao chép"><i class="bi bi-copy"></i></button>
+                    </div>
+                    <div class="t-code-row" style="margin-top:6px;">
+                      <span class="t-code-label vi-text">Lý Do:</span>
+                      <span class="t-code-label en-text" style="display:none;">Reason:</span>
+                      <span class="t-code-val">I want to join Private Group</span>
+                      <button class="t-code-copy" onclick="copyText('I want to join Private Group',this)" title="Sao chép"><i class="bi bi-copy"></i></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="t-step last">
+                  <div class="t-num okx-num">3</div>
+                  <div class="t-body">
+                    <div class="t-title vi-text">Bấm Submit và chờ kết quả</div>
+                    <div class="t-title en-text" style="display:none;">Submit and wait for result</div>
+                    <p class="t-desc vi-text">Kết quả xử lý trong ngày (~22h–23h). OKX thông báo qua App.</p>
+                    <p class="t-desc en-text" style="display:none;">Result is processed same day (~10–11 PM). OKX will notify via App.</p>
+                    <div class="reg-note-box warn-box" style="margin-top:10px;">
+                      <i class="bi bi-exclamation-triangle-fill"></i>
+                      <span class="vi-text">Nếu xuất hiện popup <strong>"Không thể tham gia ngay bây giờ"</strong> hoặc OKX không duyệt → thực hiện <strong>Tab 3</strong>.</span>
+                      <span class="en-text" style="display:none;">If you see <strong>"Cannot join now"</strong> popup or OKX rejects → proceed to <strong>Tab 3</strong>.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="reg-panel" id="okx-panel-3">
+              <div class="reg-note-box warn-box">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <span class="vi-text">Áp dụng khi tài khoản cũ <strong>đã đăng ký dưới mã giới thiệu khác</strong> hoặc <strong>không thể nhập mã mới</strong> theo Tab 2. Cần tạo tài khoản OKX mới.</span>
+                <span class="en-text" style="display:none;">Applies when old account is <strong>under another referral code</strong> or <strong>cannot apply new code</strong> per Tab 2. A new OKX account is required.</span>
+              </div>
+              <div class="timeline">
+                <div class="t-step">
+                  <div class="t-num okx-num">1</div>
+                  <div class="t-body">
+                    <div class="t-title vi-text">Chuyển tài sản & đóng tài khoản cũ</div>
+                    <div class="t-title en-text" style="display:none;">Transfer assets & close old account</div>
+                    <p class="t-desc vi-text">Chuyển toàn bộ tài sản sang sàn khác hoặc rút qua P2P. Sau đó <strong>"Đóng Tài Khoản"</strong> trong cài đặt OKX. Tiếp theo tạo tài khoản mới qua link BACKCOM — kiểm tra mã giới thiệu đã được nhập khi đăng ký.</p>
+                    <p class="t-desc en-text" style="display:none;">Move all assets to another exchange or withdraw via P2P. Then do <strong>"Close Account"</strong> in OKX settings. Create a new account via BACKCOM link — ensure the referral code is entered during registration.</p>
+                    <a href="#" class="btn-step okx-btn-step" data-broker="okx" data-action="register">
+                      <i class="bi bi-person-plus-fill"></i>
+                      <span class="vi-text">Đăng Ký Tài Khoản OKX Mới</span>
+                      <span class="en-text" style="display:none;">Register New OKX Account</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="t-step">
+                  <div class="t-num okx-num">2</div>
+                  <div class="t-body">
+                    <div class="t-title vi-text">KYC bằng loại giấy tờ khác</div>
+                    <div class="t-title en-text" style="display:none;">KYC with a different document</div>
+                    <p class="t-desc vi-text">KYC tài khoản mới bằng <strong>loại giấy tờ khác với tài khoản cũ</strong>. Ví dụ: cũ dùng CCCD thì mới dùng Bằng Lái Xe hoặc Hộ Chiếu.</p>
+                    <p class="t-desc en-text" style="display:none;">Complete KYC using a <strong>different document than the old account</strong>. E.g., if old used National ID, use Driver's License or Passport.</p>
+                  </div>
+                </div>
+                <div class="t-step last">
+                  <div class="t-num okx-num">3</div>
+                  <div class="t-body">
+                    <div class="t-title vi-text">Nạp tiền & giao dịch như bình thường</div>
+                    <div class="t-title en-text" style="display:none;">Deposit & trade normally</div>
+                    <p class="t-desc vi-text">Nạp tiền vào tài khoản và bắt đầu giao dịch để nhận hoàn phí tự động.</p>
+                    <p class="t-desc en-text" style="display:none;">Deposit funds and start trading to receive automatic rebates.</p>
                   </div>
                 </div>
               </div>
@@ -929,7 +1153,7 @@
   </div>
 </section>
 
-<!-- ===== WHY BACKCOM ===== -->
+<!-- ===== WHY / COMPARISON ===== -->
 <section class="section" id="why-backcom">
   <div class="container">
     <div class="section-header">
@@ -1023,6 +1247,74 @@
         <span class="vi-text">Kích Hoạt BACKCOM Ngay Hôm Nay</span>
         <span class="en-text" style="display:none;">Activate BACKCOM Today</span>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES SECTION ===== -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge vi-text">TẠI SAO BACKCOM</div>
+      <div class="section-badge en-text" style="display:none;">WHY BACKCOM</div>
+      <h2 class="section-title vi-text">Tại Sao Nên Nhận Hoàn Phí Tại BACKCOM?</h2>
+      <h2 class="section-title en-text" style="display:none;">Why Choose BACKCOM For Rebates?</h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-icon"><i class="bi bi-percent"></i></div>
+          <div class="feat-title vi-text">Tỉ Lệ Hoàn Phí Tốt Nhất</div>
+          <div class="feat-title en-text" style="display:none;">Best Rebate Rate</div>
+        </div>
+        <p class="feat-desc vi-text">BACKCOM là <strong>đối tác chính thức</strong> của các sàn giao dịch, nhờ đó người dùng luôn được hưởng mức hoàn phí cao nhất, ổn định và minh bạch nhất.</p>
+        <p class="feat-desc en-text" style="display:none;">BACKCOM is an <strong>official broker partner</strong>, giving you the highest, most stable and transparent rebate rates available.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-icon"><i class="bi bi-arrow-repeat"></i></div>
+          <div class="feat-title vi-text">Hoàn Phí Trọn Đời</div>
+          <div class="feat-title en-text" style="display:none;">Lifetime Rebates</div>
+        </div>
+        <p class="feat-desc vi-text">BACKCOM áp dụng <strong>hoàn phí trọn đời cho mọi giao dịch</strong>, không giới hạn thời gian và không yêu cầu điều kiện phức tạp. Chỉ cần giao dịch là bạn nhận hoàn phí.</p>
+        <p class="feat-desc en-text" style="display:none;">BACKCOM provides <strong>lifetime rebates on every trade</strong> — no time limits, no complex conditions. Trade and earn, simple as that.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-icon"><i class="bi bi-shield-check"></i></div>
+          <div class="feat-title vi-text">Hệ Thống Minh Bạch</div>
+          <div class="feat-title en-text" style="display:none;">Transparent System</div>
+        </div>
+        <p class="feat-desc vi-text">Mọi giao dịch và khoản hoàn phí đều được ghi nhận <strong>tự động — minh bạch</strong>, giúp bạn theo dõi số tiền hoàn phí và khối lượng giao dịch theo thời gian thực.</p>
+        <p class="feat-desc en-text" style="display:none;">Every trade and rebate is logged <strong>automatically and transparently</strong> — track your earnings and trade volume in real time.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-icon"><i class="bi bi-grid-1x2"></i></div>
+          <div class="feat-title vi-text">Hỗ Trợ Nhiều Sàn</div>
+          <div class="feat-title en-text" style="display:none;">Multi-Broker Support</div>
+        </div>
+        <p class="feat-desc vi-text">BACKCOM hỗ trợ <strong>hoàn phí trên nhiều sàn lớn</strong> như <strong>Exness, Binance, Bybit, OKX</strong>, giúp bạn linh hoạt lựa chọn nền tảng mà vẫn tối ưu chi phí giao dịch.</p>
+        <p class="feat-desc en-text" style="display:none;">BACKCOM supports <strong>rebates across major brokers</strong> including <strong>Exness, Binance, Bybit, OKX</strong> — flexible choice, optimized costs.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-icon"><i class="bi bi-people-fill"></i></div>
+          <div class="feat-title vi-text">Nhóm Private – Độc Quyền</div>
+          <div class="feat-title en-text" style="display:none;">Exclusive Private Group</div>
+        </div>
+        <p class="feat-desc vi-text">Thành viên BACKCOM được tham gia độc quyền <strong>Nhóm Private</strong> — nơi chia sẻ tín hiệu giao dịch, góc nhìn thị trường và kinh nghiệm trade thực chiến.</p>
+        <p class="feat-desc en-text" style="display:none;">BACKCOM members get exclusive access to the <strong>Private Group</strong> — trading signals, market insights, and real trading experience to sharpen your edge.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-head">
+          <div class="feat-icon"><i class="bi bi-headset"></i></div>
+          <div class="feat-title vi-text">Hỗ Trợ 24/7</div>
+          <div class="feat-title en-text" style="display:none;">24/7 Support</div>
+        </div>
+        <p class="feat-desc vi-text">Đội ngũ BACKCOM luôn sẵn sàng <strong>hỗ trợ 24/7</strong>, phản hồi nhanh và chủ động xử lý vấn đề, giúp bạn nhận <strong>hoàn phí đúng – đủ – kịp thời</strong>.</p>
+        <p class="feat-desc en-text" style="display:none;">BACKCOM's team is available <strong>24/7</strong> — responding fast and proactively so you receive rebates <strong>accurately and on time</strong>.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1135,8 +1427,8 @@
         <div class="contact-body">
           <div class="contact-name">Telegram</div>
           <div class="contact-handle" id="ct-telegram-handle"></div>
-          <div class="contact-desc vi-text">Phản hồi nhanh nhất — hỗ trợ 24/7</div>
-          <div class="contact-desc en-text" style="display:none;">Fastest response — 24/7 support</div>
+          <div class="contact-desc vi-text" id="ct-telegram-desc-vi"></div>
+          <div class="contact-desc en-text" id="ct-telegram-desc-en" style="display:none;"></div>
         </div>
         <div class="contact-arrow"><i class="bi bi-arrow-up-right"></i></div>
       </a>
@@ -1149,8 +1441,8 @@
         <div class="contact-body">
           <div class="contact-name">Zalo</div>
           <div class="contact-handle" id="ct-zalo-handle"></div>
-          <div class="contact-desc vi-text">Hỗ trợ tiếng Việt — phản hồi trong ngày</div>
-          <div class="contact-desc en-text" style="display:none;">Vietnamese support — same-day response</div>
+          <div class="contact-desc vi-text" id="ct-zalo-desc-vi"></div>
+          <div class="contact-desc en-text" id="ct-zalo-desc-en" style="display:none;"></div>
         </div>
         <div class="contact-arrow"><i class="bi bi-arrow-up-right"></i></div>
       </a>
@@ -1163,8 +1455,8 @@
         <div class="contact-body">
           <div class="contact-name">Facebook</div>
           <div class="contact-handle" id="ct-facebook-handle"></div>
-          <div class="contact-desc vi-text">Fanpage & cộng đồng trader</div>
-          <div class="contact-desc en-text" style="display:none;">Fanpage & trader community</div>
+          <div class="contact-desc vi-text" id="ct-facebook-desc-vi"></div>
+          <div class="contact-desc en-text" id="ct-facebook-desc-en" style="display:none;"></div>
         </div>
         <div class="contact-arrow"><i class="bi bi-arrow-up-right"></i></div>
       </a>
@@ -1177,8 +1469,8 @@
         <div class="contact-body">
           <div class="contact-name">Email</div>
           <div class="contact-handle" id="ct-email-handle"></div>
-          <div class="contact-desc vi-text">Hỗ trợ kỹ thuật & khiếu nại</div>
-          <div class="contact-desc en-text" style="display:none;">Technical support & complaints</div>
+          <div class="contact-desc vi-text" id="ct-email-desc-vi"></div>
+          <div class="contact-desc en-text" id="ct-email-desc-en" style="display:none;"></div>
         </div>
         <div class="contact-arrow"><i class="bi bi-arrow-up-right"></i></div>
       </a>
